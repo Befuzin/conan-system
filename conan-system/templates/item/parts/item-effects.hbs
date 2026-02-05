@@ -1,0 +1,11 @@
+{{!-- Item Effects Partial --}}
+<div class="item-effects">
+  <h3>Active Effects</h3>
+  <ol class="effects-list">
+    {{#each effects as |effect|}}
+    <li class="effect">
+      <span>{{effect.name}}</span>
+    </li>
+    {{/each}}
+  </ol>
+</div>

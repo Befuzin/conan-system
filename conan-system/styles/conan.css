@@ -1,0 +1,959 @@
+/* ===========================
+   CONAN RPG SYSTEM STYLES
+   Hyborian Age Theme
+   =========================== */
+
+/* === Global Styles === */
+.conan {
+  font-family: "Cinzel", "Palatino Linotype", serif;
+  --color-bg-dark: #1a1410;
+  --color-bg-medium: #2d2419;
+  --color-bg-light: #3d3024;
+  --color-border: #6b5d4f;
+  --color-metal: #8b7355;
+  --color-gold: #d4af37;
+  --color-blood: #8b0000;
+  --color-steel: #4a4a4a;
+  --color-text-light: #e8dcc4;
+  --color-text-dark: #1a1410;
+}
+
+.conan .window-content {
+  background: linear-gradient(135deg, var(--color-bg-dark) 0%, var(--color-bg-medium) 100%);
+  background-image: 
+    linear-gradient(135deg, var(--color-bg-dark) 0%, var(--color-bg-medium) 100%),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect fill="%231a1410" width="100" height="100"/><path d="M0 0 L100 100 M100 0 L0 100" stroke="%23ffffff" stroke-width="0.5" opacity="0.02"/></svg>');
+  color: var(--color-text-light);
+}
+
+/* === Actor Sheet Header === */
+.conan.sheet .sheet-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 10px;
+  padding: 15px;
+  background: linear-gradient(180deg, var(--color-bg-medium) 0%, var(--color-bg-dark) 100%);
+  border: 3px solid var(--color-metal);
+  border-radius: 0;
+  box-shadow: 
+    inset 0 2px 0 rgba(255,255,255,0.1),
+    0 4px 8px rgba(0,0,0,0.5);
+  position: relative;
+}
+
+.conan.sheet .sheet-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--color-gold) 20%, 
+    var(--color-gold) 80%, 
+    transparent 100%);
+  opacity: 0.6;
+}
+
+/* Header Row 1: Portrait + Name + Origin/Flex */
+.conan.sheet .header-row-1 {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.conan.sheet .sheet-header .profile-img {
+  flex: 0 0 100px;
+  height: 100px;
+  border: 3px solid var(--color-metal);
+  border-radius: 0;
+  cursor: pointer;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.8), 0 4px 8px rgba(0,0,0,0.6);
+  filter: grayscale(0.1) contrast(1.1);
+  transition: all 0.3s ease;
+}
+
+.conan.sheet .sheet-header .profile-img:hover {
+  filter: grayscale(0) contrast(1.2);
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 1px var(--color-gold), 0 0 15px rgba(212,175,55,0.4);
+}
+
+.conan.sheet .header-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.conan.sheet .sheet-header h1.charname {
+  margin: 0;
+  border-bottom: 3px solid var(--color-gold);
+  padding-bottom: 8px;
+  font-size: 2.2em;
+  font-weight: 900;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 
+    2px 2px 0 var(--color-bg-dark),
+    0 0 10px rgba(212,175,55,0.3);
+}
+
+.conan.sheet .sheet-header h1.charname input {
+  width: 100%;
+  margin: 0;
+  border: none;
+  background: transparent;
+  font-family: "Cinzel", serif;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  text-shadow: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}
+
+.conan.sheet .origin-flex-row {
+  display: flex;
+  gap: 15px;
+}
+
+.conan.sheet .origin-field,
+.conan.sheet .flex-die-field {
+  flex: 1;
+}
+
+.conan.sheet .origin-field label,
+.conan.sheet .flex-die-field label {
+  display: block;
+  font-size: 0.7em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 5px;
+  letter-spacing: 2px;
+}
+
+.conan.sheet .origin-field input,
+.conan.sheet .flex-die-field select {
+  width: 100%;
+  padding: 6px;
+  background: var(--color-bg-dark);
+  color: var(--color-text-light);
+  border: 2px solid var(--color-steel);
+  border-radius: 0;
+  font-family: "Cinzel", serif;
+  font-weight: bold;
+}
+
+/* Attributes Row - Always Visible! */
+.conan.sheet .attributes-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 12px;
+  background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.2) 100%);
+  border: 2px solid var(--color-border);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.6);
+}
+
+.conan.sheet .attribute-box {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background: linear-gradient(135deg, var(--color-bg-medium) 0%, var(--color-bg-dark) 100%);
+  border: 3px solid var(--color-border);
+  border-radius: 0;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.6);
+  position: relative;
+}
+
+.conan.sheet .attribute-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  opacity: 0.3;
+}
+
+.conan.sheet .attribute-header {
+  font-size: 1.1em;
+  font-weight: 900;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--color-gold);
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 0 var(--color-bg-dark);
+}
+
+.conan.sheet .attribute-values {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.conan.sheet .attribute-value,
+.conan.sheet .attribute-die {
+  flex: 1;
+}
+
+.conan.sheet .attribute-value label,
+.conan.sheet .attribute-die label {
+  display: block;
+  font-size: 0.6em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--color-metal);
+  margin-bottom: 4px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.conan.sheet .attribute-value input,
+.conan.sheet .attribute-die select {
+  width: 100%;
+  text-align: center;
+  border: 2px solid var(--color-steel);
+  border-radius: 0;
+  padding: 6px 4px;
+  background: var(--color-bg-dark);
+  color: var(--color-text-light);
+  font-weight: bold;
+  font-size: 1.1em;
+  font-family: "Cinzel", serif;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.6);
+}
+
+.conan.sheet .attribute-roll {
+  width: 100%;
+  padding: 8px;
+  background: linear-gradient(180deg, var(--color-blood) 0%, #5a0000 100%);
+  color: var(--color-text-light);
+  border: 2px solid #3d0000;
+  border-radius: 0;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  letter-spacing: 1px;
+  box-shadow: 
+    inset 0 1px 0 rgba(255,255,255,0.1),
+    0 3px 6px rgba(0,0,0,0.6);
+  transition: all 0.2s ease;
+}
+
+.conan.sheet .attribute-roll:hover {
+  background: linear-gradient(180deg, #a00000 0%, var(--color-blood) 100%);
+  box-shadow: 
+    inset 0 1px 0 rgba(255,255,255,0.2),
+    0 0 12px rgba(139,0,0,0.6);
+  transform: translateY(-1px);
+}
+
+/* Resources Row */
+.conan.sheet .resources-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.conan.sheet .resource-box,
+.conan.sheet .defense-box,
+.conan.sheet .recovery-button-box {
+  padding: 8px;
+  background: linear-gradient(180deg, var(--color-bg-light) 0%, var(--color-bg-medium) 100%);
+  border: 2px solid var(--color-border);
+  border-radius: 0;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.conan.sheet .resource-box label,
+.conan.sheet .defense-box label {
+  display: block;
+  font-weight: bold;
+  font-size: 0.65em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 5px;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+  text-align: center;
+}
+
+.conan.sheet .resource-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  font-family: "Cinzel", serif;
+  gap: 4px;
+}
+
+.conan.sheet .resource-content input.current,
+.conan.sheet .resource-content input.max {
+  width: 40px;
+  text-align: center;
+  border: 2px solid var(--color-steel);
+  border-radius: 0;
+  padding: 4px;
+  background: var(--color-bg-dark);
+  color: var(--color-text-light);
+  font-weight: bold;
+  font-family: "Cinzel", serif;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.6);
+}
+
+.conan.sheet .resource-content .sep {
+  color: var(--color-metal);
+  font-weight: bold;
+}
+
+.conan.sheet .resource-content .max {
+  color: var(--color-gold);
+}
+
+.conan.sheet .defense-box .defense-value {
+  font-size: 1.8em;
+  font-weight: 900;
+  color: var(--color-gold);
+  text-align: center;
+  text-shadow: 
+    2px 2px 0 var(--color-bg-dark),
+    0 0 8px rgba(212,175,55,0.3);
+  font-family: "Cinzel", serif;
+}
+
+.conan.sheet .base-lp-hint {
+  margin-top: 4px;
+  font-size: 0.65em;
+  color: var(--color-metal);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.conan.sheet .base-lp-hint .base-input {
+  width: 35px;
+  text-align: center;
+  padding: 2px;
+  border: 1px solid var(--color-steel);
+  background: var(--color-bg-dark);
+  color: var(--color-text-light);
+  font-family: "Cinzel", serif;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.conan.sheet .recovery-button-box {
+  padding: 4px;
+  background: linear-gradient(135deg, rgba(34,139,34,0.2) 0%, rgba(34,139,34,0.1) 100%);
+  border-color: #2d5a2d;
+}
+
+.conan.sheet .recovery-button-box .use-recovery {
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  background: linear-gradient(180deg, #2d8b2d 0%, #1a5a1a 100%);
+  color: var(--color-text-light);
+  border: 2px solid #1a4a1a;
+  border-radius: 0;
+  cursor: pointer;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 0.7em;
+  letter-spacing: 1px;
+  box-shadow: 
+    inset 0 1px 0 rgba(255,255,255,0.1),
+    0 3px 6px rgba(0,0,0,0.6);
+  transition: all 0.2s ease;
+  font-family: "Cinzel", serif;
+}
+
+.conan.sheet .recovery-button-box .use-recovery:hover {
+  background: linear-gradient(180deg, #3da53d 0%, #2d8b2d 100%);
+  box-shadow: 
+    inset 0 1px 0 rgba(255,255,255,0.2),
+    0 0 12px rgba(45,139,45,0.6);
+  transform: translateY(-1px);
+}
+
+/* === Tabs === */
+.conan.sheet .tabs {
+  height: 32px;
+  border-top: 2px solid var(--color-metal);
+  border-bottom: 2px solid var(--color-metal);
+  background: linear-gradient(180deg, var(--color-bg-medium) 0%, var(--color-bg-dark) 100%);
+  box-shadow: 
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    0 2px 4px rgba(0,0,0,0.5);
+}
+
+.conan.sheet .tabs .item {
+  line-height: 32px;
+  padding: 0 15px;
+  font-weight: bold;
+  color: var(--color-metal);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.75em;
+  transition: all 0.2s ease;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+.conan.sheet .tabs .item:hover {
+  color: var(--color-gold);
+  text-shadow: 0 0 6px rgba(212,175,55,0.4);
+}
+
+.conan.sheet .tabs .item.active {
+  color: var(--color-gold);
+  text-decoration: none;
+  text-shadow: 0 0 8px rgba(212,175,55,0.5);
+  border-bottom: 2px solid var(--color-gold);
+  background: linear-gradient(180deg, transparent 0%, rgba(212,175,55,0.1) 100%);
+}
+
+/* === Section Headers === */
+.conan.sheet .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  margin: 0 0 8px;
+  background: linear-gradient(180deg, var(--color-metal) 0%, var(--color-border) 100%);
+  color: var(--color-text-light);
+  font-weight: 900;
+  border-radius: 0;
+  border: 2px solid var(--color-steel);
+  box-shadow: 
+    inset 0 1px 0 rgba(255,255,255,0.2),
+    0 2px 4px rgba(0,0,0,0.6);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85em;
+}
+
+.conan.sheet .section-header i.fas {
+  margin-right: 8px;
+  color: var(--color-gold);
+}
+
+.conan.sheet .section-header .item-create {
+  color: var(--color-gold);
+  text-decoration: none;
+  font-size: 0.9em;
+  padding: 2px 6px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.conan.sheet .section-header .item-create:hover {
+  color: var(--color-text-light);
+  border-color: var(--color-gold);
+  background: rgba(212,175,55,0.2);
+}
+
+/* === Combat Grid === */
+.conan.sheet .combat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.conan.sheet .combat-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* === Skills Grid === */
+.conan.sheet .skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.conan.sheet .skills-column,
+.conan.sheet .talents-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* === Compact Item Lists === */
+.conan.sheet .items-list.compact .item {
+  padding: 4px 6px;
+  margin-bottom: 2px;
+  min-height: auto;
+}
+
+.conan.sheet .items-list.compact .item-image {
+  flex: 0 0 20px;
+  margin-right: 8px;
+}
+
+.conan.sheet .items-list.compact .item-image img {
+  width: 20px;
+  height: 20px;
+}
+
+.conan.sheet .items-list.compact .item-name {
+  font-size: 0.9em;
+}
+
+.conan.sheet .items-list.compact .item-controls {
+  gap: 4px;
+}
+
+.conan.sheet .items-list.compact .item-detail.small {
+  padding: 2px 6px;
+  font-size: 0.75em;
+}
+
+.conan.sheet .items-list.compact .item-controls a {
+  padding: 2px 5px;
+  font-size: 0.85em;
+}
+
+/* === Encumbrance Tracker === */
+.conan.sheet .encumbrance-tracker {
+  padding: 12px;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, var(--color-bg-light) 0%, var(--color-bg-medium) 100%);
+  border: 2px solid var(--color-border);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.conan.sheet .encumbrance-tracker.encumbered {
+  border-color: #8b0000;
+  background: linear-gradient(135deg, rgba(139,0,0,0.2) 0%, rgba(139,0,0,0.1) 100%);
+}
+
+.conan.sheet .encumbrance-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.conan.sheet .encumbrance-item {
+  text-align: center;
+  padding: 8px;
+  background: rgba(0,0,0,0.3);
+  border: 1px solid var(--color-steel);
+}
+
+.conan.sheet .encumbrance-item label {
+  display: block;
+  font-size: 0.7em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+.conan.sheet .encumbrance-value {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: var(--color-text-light);
+  font-family: "Cinzel", serif;
+}
+
+.conan.sheet .encumbrance-status {
+  font-size: 1em;
+  font-weight: bold;
+  font-family: "Cinzel", serif;
+}
+
+.conan.sheet .encumbrance-tracker:not(.encumbered) .encumbrance-status {
+  color: #32cd32;
+}
+
+.conan.sheet .encumbrance-tracker.encumbered .encumbrance-status {
+  color: #ff4444;
+}
+
+.conan.sheet .encumbrance-warning {
+  padding: 10px;
+  background: rgba(139,0,0,0.3);
+  border: 2px solid var(--color-blood);
+  color: var(--color-text-light);
+  font-size: 0.85em;
+  text-align: center;
+}
+
+.conan.sheet .encumbrance-warning i {
+  color: #ff4444;
+  margin-right: 5px;
+}
+
+/* === Threshold Hints === */
+.conan.sheet .threshold-hint {
+  margin: 3px 0 0;
+  font-size: 0.65em;
+  font-style: italic;
+  color: var(--color-metal);
+  text-align: center;
+}
+
+/* === Sheet Body === */
+.conan.sheet .sheet-body {
+  overflow: hidden;
+}
+
+.conan.sheet .sheet-body .tab {
+  height: 100%;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+/* === Items === */
+.conan.sheet .items-section {
+  margin-bottom: 15px;
+}
+
+.conan.sheet .items-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.conan.sheet .items-list .item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  margin-bottom: 3px;
+  background: linear-gradient(90deg, var(--color-bg-light) 0%, var(--color-bg-medium) 100%);
+  border: 2px solid var(--color-border);
+  border-radius: 0;
+  border-left: 4px solid var(--color-steel);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+  transition: all 0.2s ease;
+}
+
+.conan.sheet .items-list .item:hover {
+  background: linear-gradient(90deg, var(--color-bg-medium) 0%, var(--color-bg-light) 100%);
+  border-left-color: var(--color-gold);
+  box-shadow: 0 0 12px rgba(212,175,55,0.3);
+  transform: translateX(2px);
+}
+
+.conan.sheet .item-image {
+  flex: 0 0 32px;
+  margin-right: 12px;
+  border: 2px solid var(--color-steel);
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.6);
+}
+
+.conan.sheet .item-image img {
+  display: block;
+  border-radius: 0;
+}
+
+.conan.sheet .item-name {
+  flex: 2;
+  margin: 0;
+  font-size: 1em;
+  font-weight: bold;
+  color: var(--color-text-light);
+  font-family: "Cinzel", serif;
+}
+
+.conan.sheet .item-controls {
+  flex: 0 0 auto;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.conan.sheet .item-detail {
+  padding: 4px 10px;
+  background: rgba(0,0,0,0.4);
+  border: 1px solid var(--color-steel);
+  border-radius: 0;
+  font-size: 0.85em;
+  font-weight: bold;
+  color: var(--color-gold);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+.conan.sheet .item-controls a {
+  padding: 4px 8px;
+  color: var(--color-metal);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.conan.sheet .item-controls a:hover {
+  color: var(--color-gold);
+  border-color: var(--color-gold);
+  background: rgba(212,175,55,0.1);
+  text-shadow: 0 0 6px rgba(212,175,55,0.6);
+}
+
+/* === Item Sheets === */
+.conan.item .sheet-header {
+  background: linear-gradient(135deg, var(--color-bg-dark) 0%, var(--color-bg-medium) 100%);
+  border: 3px solid var(--color-metal);
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.conan.item .form-group {
+  margin: 15px 0;
+}
+
+.conan.item .form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85em;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+.conan.item .form-group input,
+.conan.item .form-group select,
+.conan.item .form-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid var(--color-steel);
+  border-radius: 0;
+  background: var(--color-bg-dark);
+  color: var(--color-text-light);
+  font-family: "Cinzel", serif;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.6);
+}
+
+.conan.item .form-group input:focus,
+.conan.item .form-group select:focus,
+.conan.item .form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 8px rgba(212,175,55,0.4);
+}
+
+.conan.item .form-group .hint {
+  margin: 5px 0 0;
+  font-size: 0.75em;
+  font-style: italic;
+  color: var(--color-metal);
+}
+
+.conan.item .uses-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.conan.item .uses-row input {
+  width: auto;
+  flex: 1;
+}
+
+.conan.item .uses-row .sep {
+  color: var(--color-gold);
+  font-weight: bold;
+}
+
+/* === Chat Messages === */
+.conan-roll {
+  background: linear-gradient(135deg, var(--color-bg-medium) 0%, var(--color-bg-dark) 100%);
+  border: 3px solid var(--color-metal);
+  border-radius: 0;
+  padding: 15px;
+  box-shadow: 
+    inset 0 2px 0 rgba(255,255,255,0.05),
+    0 4px 8px rgba(0,0,0,0.8);
+  position: relative;
+}
+
+.conan-roll::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  opacity: 0.4;
+}
+
+.conan-roll .dice-formula {
+  margin: 0 0 8px;
+  font-size: 0.85em;
+  color: var(--color-metal);
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+.conan-roll .dice-total {
+  font-size: 2.5em;
+  font-weight: 900;
+  color: var(--color-gold);
+  margin: 15px 0;
+  text-align: center;
+  text-shadow: 
+    3px 3px 0 var(--color-bg-dark),
+    0 0 15px rgba(212,175,55,0.5);
+  font-family: "Cinzel", serif;
+  letter-spacing: 3px;
+}
+
+.conan-roll .dice-tooltip {
+  margin: 12px 0;
+}
+
+.conan-roll .auto-fail {
+  padding: 8px 12px;
+  background: linear-gradient(135deg, var(--color-blood) 0%, #5a0000 100%);
+  color: var(--color-text-light);
+  border-radius: 0;
+  border: 2px solid #3d0000;
+  margin-bottom: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 
+    inset 0 1px 0 rgba(255,255,255,0.1),
+    0 3px 6px rgba(0,0,0,0.8);
+}
+
+.conan-roll .flex-trigger {
+  padding: 8px 12px;
+  background: linear-gradient(135deg, var(--color-gold) 0%, #b8932f 100%);
+  color: var(--color-text-dark);
+  border-radius: 0;
+  border: 2px solid #9a7a2a;
+  margin-bottom: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 
+    inset 0 1px 0 rgba(255,255,255,0.3),
+    0 0 15px rgba(212,175,55,0.6),
+    0 3px 6px rgba(0,0,0,0.8);
+  animation: flex-pulse 2s infinite;
+}
+
+@keyframes flex-pulse {
+  0%, 100% { box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 0 15px rgba(212,175,55,0.6), 0 3px 6px rgba(0,0,0,0.8); }
+  50% { box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 0 25px rgba(212,175,55,0.9), 0 3px 6px rgba(0,0,0,0.8); }
+}
+
+.conan-roll .focused-attack,
+.conan-roll .massive-damage {
+  padding: 8px 12px;
+  background: linear-gradient(135deg, #5a5a8b 0%, #3a3a5a 100%);
+  color: var(--color-text-light);
+  border-radius: 0;
+  border: 2px solid #2a2a4a;
+  margin-bottom: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 
+    inset 0 1px 0 rgba(255,255,255,0.1),
+    0 3px 6px rgba(0,0,0,0.8);
+}
+
+.conan-roll .damage-note {
+  margin-top: 15px;
+  padding: 8px;
+  background: rgba(0,0,0,0.4);
+  border-radius: 0;
+  border-left: 3px solid var(--color-blood);
+  font-style: italic;
+  font-size: 0.9em;
+  color: var(--color-metal);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+.conan-roll .damage-note p {
+  margin: 0;
+}
+
+/* === Editor === */
+.conan.sheet .editor {
+  height: 300px;
+  border: 2px solid var(--color-steel);
+  border-radius: 0;
+  background: var(--color-bg-dark);
+}
+
+.conan.sheet .editor .editor-content {
+  background: var(--color-bg-dark);
+  color: var(--color-text-light);
+}
+
+/* === Scrollbars === */
+.conan.sheet ::-webkit-scrollbar {
+  width: 12px;
+  background: var(--color-bg-dark);
+}
+
+.conan.sheet ::-webkit-scrollbar-track {
+  background: var(--color-bg-dark);
+  border: 1px solid var(--color-steel);
+}
+
+.conan.sheet ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-metal) 0%, var(--color-border) 100%);
+  border: 1px solid var(--color-steel);
+}
+
+.conan.sheet ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--color-gold) 0%, var(--color-metal) 100%);
+}
+
+/* === Select Dropdowns === */
+.conan.sheet select {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.conan.sheet select option {
+  background: var(--color-bg-dark);
+  color: var(--color-text-light);
+  padding: 5px;
+}
+
+/* === Additional Polish === */
+.conan.sheet button,
+.conan.sheet input[type="button"],
+.conan.sheet input[type="submit"] {
+  font-family: "Cinzel", serif;
+}
+
+.conan.sheet input[type="text"],
+.conan.sheet input[type="number"] {
+  font-family: "Cinzel", serif;
+}
+
+/* === Window Title Bar === */
+.conan.sheet .window-title {
+  font-family: "Cinzel", serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}

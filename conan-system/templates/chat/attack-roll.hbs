@@ -1,0 +1,19 @@
+<div class="conan-roll attack-roll">
+  <div class="dice-roll">
+    <div class="dice-result">
+      <h4 class="dice-formula">{{formula}}</h4>
+      <div class="dice-tooltip">
+        {{#if autoFail}}
+        <div class="auto-fail"><i class="fas fa-skull"></i> Automatic Failure (rolled 1 on stat die)</div>
+        {{/if}}
+        {{#if hasFlexTrigger}}
+        <div class="flex-trigger"><i class="fas fa-star"></i> Flex Triggered!</div>
+        {{/if}}
+        {{#if focused}}
+        <div class="focused-attack"><i class="fas fa-crosshairs"></i> Focused Attack (+2)</div>
+        {{/if}}
+      </div>
+      <h4 class="dice-total">{{total}}</h4>
+    </div>
+  </div>
+</div>

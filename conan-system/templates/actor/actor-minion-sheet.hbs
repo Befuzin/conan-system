@@ -1,0 +1,57 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+  <header class="sheet-header">
+    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
+      <div class="resource-group">
+        <div class="resource">
+          <label>Threshold</label>
+          <input type="text" name="system.threshold.value" value="{{system.threshold.value}}" data-dtype="Number"/>
+          <p class="threshold-hint">Damage needed to kill in one hit</p>
+        </div>
+        <div class="resource">
+          <label>Hit Status</label>
+          <input type="checkbox" name="system.hit" {{checked system.hit}}/>
+          <p class="threshold-hint">Once hit, any damage kills</p>
+        </div>
+        <div class="resource">
+          <label>Physical Defense</label>
+          <input type="text" name="system.defenses.physical.value" value="{{system.defenses.physical.value}}" data-dtype="Number"/>
+        </div>
+        <div class="resource">
+          <label>Armor Rating</label>
+          <span class="defense-value">{{system.armor.rating}}</span>
+          <p class="threshold-hint">Not used (Threshold includes AR)</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="items">Items</a>
+    <a class="item" data-tab="description">Description</a>
+  </nav>
+
+  <section class="sheet-body">
+    <div class="tab items" data-group="primary" data-tab="items">
+      <div class="items-section">
+        <h3>Weapons <a class="item-create" data-type="weapon"><i class="fas fa-plus"></i></a></h3>
+        <ol class="items-list">
+          {{#each weapons as |item|}}
+          <li class="item flexrow" data-item-id="{{item._id}}">
+            <img src="{{item.img}}" width="24" height="24"/>
+            <h4>{{item.name}}</h4>
+            <span>{{item.system.damage}}</span>
+            <a class="item-edit"><i class="fas fa-edit"></i></a>
+            <a class="item-delete"><i class="fas fa-trash"></i></a>
+          </li>
+          {{/each}}
+        </ol>
+      </div>
+    </div>
+
+    <div class="tab description" data-group="primary" data-tab="description">
+      {{editor system.biography target="system.biography" button=true owner=owner editable=editable}}
+    </div>
+  </section>
+</form>

@@ -1,0 +1,15 @@
+{{!-- Effects Partial --}}
+<div class="effects-container">
+  {{#each effects as |category|}}
+  <div class="effect-category">
+    <h3>{{category.label}}</h3>
+    <ol class="effects-list">
+      {{#each category.effects as |effect|}}
+      <li class="effect">
+        <span>{{effect.name}}</span>
+      </li>
+      {{/each}}
+    </ol>
+  </div>
+  {{/each}}
+</div>
