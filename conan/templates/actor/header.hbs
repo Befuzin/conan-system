@@ -1,0 +1,51 @@
+{{!-- Actor Header --}}
+<header class="actor-header">
+  <div class="header-left">
+    <img 
+      class="profile-img" 
+      src="{{actor.img}}" 
+      data-action="onEditImage"
+      data-edit="img"
+      title="{{actor.name}}"
+      alt="{{actor.name}}"
+    />
+  </div>
+  
+  <div class="header-center">
+    <h1 class="actor-name">
+      <input 
+        type="text" 
+        name="name" 
+        value="{{actor.name}}" 
+        placeholder="Character Name"
+      />
+    </h1>
+    
+    {{#if (eq actor.type "character")}}
+    <div class="origin-info">
+      <label>Origin:</label>
+      <select name="system.origin">
+        {{#select system.origin}}
+        {{#each config.origins as |label key|}}
+        <option value="{{key}}">{{label}}</option>
+        {{/each}}
+        {{/select}}
+      </select>
+    </div>
+    {{/if}}
+  </div>
+  
+  <div class="header-right">
+    {{#if (eq actor.type "character")}}
+    <div class="xp-box">
+      <label>XP</label>
+      <input 
+        type="number" 
+        name="system.xp" 
+        value="{{system.xp}}" 
+        data-dtype="Number"
+      />
+    </div>
+    {{/if}}
+  </div>
+</header>

@@ -1,0 +1,47 @@
+{
+  "CONAN": {
+    "Actor": {
+      "Tabs": {
+        "Stats": "Stats",
+        "Combat": "Combat",
+        "Skills": "Skills",
+        "Equipment": "Equipment",
+        "Spells": "Spells",
+        "Biography": "Biography"
+      }
+    },
+    "Item": {
+      "Tabs": {
+        "Details": "Details",
+        "Description": "Description"
+      }
+    },
+    "SheetLabels": {
+      "Actor": "Conan Actor Sheet",
+      "Item": "Conan Item Sheet"
+    },
+    "Stats": {
+      "Might": "Might",
+      "Edge": "Edge",
+      "Grit": "Grit",
+      "Wits": "Wits"
+    },
+    "WeaponTypes": {
+      "Melee": "Melee",
+      "Thrown": "Thrown",
+      "Ranged": "Ranged"
+    },
+    "ArmorTypes": {
+      "Light": "Light Armor",
+      "Medium": "Medium Armor",
+      "Shield": "Shield"
+    },
+    "Disciplines": {
+      "White": "White Magic",
+      "Black": "Black Magic",
+      "Demonic": "Demonic",
+      "Necromantic": "Necromantic",
+      "Hypnotic": "Hypnotic"
+    }
+  }
+}

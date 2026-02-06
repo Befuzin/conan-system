@@ -1,0 +1,44 @@
+{{!-- Damage Roll Chat Card --}}
+<div class="conan chat-card damage-roll">
+  <div class="card-header">
+    <img src="{{actor.img}}" alt="{{actor.name}}" />
+    <div class="header-info">
+      <h3>{{item.name}} Damage</h3>
+      <span class="actor-name">{{actor.name}}</span>
+    </div>
+  </div>
+
+  <div class="card-content">
+    <div class="roll-result">
+      <div class="total">{{total}}</div>
+      <div class="formula">{{formula}}</div>
+    </div>
+
+    {{#if flexTotal}}
+    <div class="flex-result {{#if isFlex}}flex-triggered{{/if}}">
+      <div class="flex-die">
+        <span class="label">Flex Die:</span>
+        <span class="value">{{flexTotal}}</span>
+      </div>
+      {{#if isFlex}}
+      <div class="flex-notice massive-damage">
+        <i class="fas fa-burst"></i> MASSIVE DAMAGE!
+        <div class="massive-details">
+          <div class="damage-breakdown">
+            <span>Base Damage: {{total}}</span>
+            <span>+ Massive: {{massiveDamage}}</span>
+            <span class="massive-total">= {{totalWithMassive}}</span>
+          </div>
+          <p class="help-text">Add max weapon die value to total</p>
+        </div>
+      </div>
+      {{/if}}
+    </div>
+    {{/if}}
+
+    <div class="damage-info">
+      <p class="instruction">Target reduces damage by their <strong>Armor Rating</strong></p>
+      <p class="minimum">Minimum 1 damage if attack hits</p>
+    </div>
+  </div>
+</div>

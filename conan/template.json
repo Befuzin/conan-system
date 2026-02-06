@@ -1,0 +1,145 @@
+{
+  "Actor": {
+    "types": ["character", "minion", "antagonist"],
+    "templates": {
+      "base": {
+        "biography": ""
+      },
+      "stats": {
+        "stats": {
+          "might": {
+            "value": 1,
+            "die": "d6"
+          },
+          "edge": {
+            "value": 1,
+            "die": "d6"
+          },
+          "grit": {
+            "value": 1,
+            "die": "d6"
+          },
+          "wits": {
+            "value": 1,
+            "die": "d6"
+          }
+        }
+      },
+      "defenses": {
+        "defense": {
+          "physical": {
+            "base": 0,
+            "bonus": 0
+          },
+          "sorcery": {
+            "base": 0,
+            "bonus": 0
+          }
+        }
+      }
+    },
+    "character": {
+      "templates": ["base", "stats", "defenses"],
+      "life": {
+        "value": 20,
+        "max": 20
+      },
+      "stamina": {
+        "value": 0,
+        "max": 0
+      },
+      "flex": {
+        "die": "d10"
+      },
+      "initiative": {
+        "value": 0,
+        "bonus": 0
+      },
+      "origin": "",
+      "originBonuses": "",
+      "recoveries": {
+        "value": 2,
+        "max": 2
+      },
+      "xp": 0
+    },
+    "minion": {
+      "templates": ["base", "stats", "defenses"],
+      "threshold": {
+        "value": 5
+      },
+      "isHit": false,
+      "ar": {
+        "min": 0,
+        "max": 0
+      },
+      "actions": {
+        "count": 2,
+        "attackLimit": 1
+      }
+    },
+    "antagonist": {
+      "templates": ["base", "stats", "defenses"],
+      "life": {
+        "value": 40,
+        "max": 40
+      },
+      "ar": {
+        "min": 0,
+        "max": 0
+      },
+      "actions": {
+        "count": 3,
+        "attackLimit": 2
+      }
+    }
+  },
+  "Item": {
+    "types": ["weapon", "armor", "skill", "spell", "gear"],
+    "templates": {
+      "base": {
+        "description": ""
+      }
+    },
+    "weapon": {
+      "templates": ["base"],
+      "weaponType": "melee",
+      "range": "touch",
+      "damage": {
+        "die": "d6",
+        "bonus": 0,
+        "static": 0
+      },
+      "equipped": false,
+      "properties": []
+    },
+    "armor": {
+      "templates": ["base"],
+      "armorType": "light",
+      "ar": 3,
+      "equipped": false,
+      "defenseBonus": 0,
+      "stipulations": ""
+    },
+    "skill": {
+      "templates": ["base"],
+      "effect": "",
+      "staminaCost": 0
+    },
+    "spell": {
+      "templates": ["base"],
+      "discipline": "white",
+      "cost": {
+        "life": 0,
+        "stamina": 0
+      },
+      "actions": 1,
+      "range": "touch",
+      "effect": ""
+    },
+    "gear": {
+      "templates": ["base"],
+      "quantity": 1
+    }
+  }
+}

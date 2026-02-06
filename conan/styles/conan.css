@@ -1,0 +1,965 @@
+/* Conan System Stylesheet */
+
+/* Color Palette */
+:root {
+  --conan-primary: #8B0000; /* Dark Red */
+  --conan-secondary: #B8860B; /* Dark Goldenrod */
+  --conan-tertiary: #2F4F4F; /* Dark Slate Gray */
+  --conan-might: #8B0000;
+  --conan-edge: #228B22;
+  --conan-grit: #B8860B;
+  --conan-wits: #4B0082;
+  --conan-bg-dark: #1a1a1a;
+  --conan-bg-light: #2a2a2a;
+  --conan-border: #3a3a3a;
+  --conan-text: #e0e0e0;
+  --conan-text-dim: #a0a0a0;
+}
+
+/* General Styles */
+.conan.actor, .conan.item {
+  font-family: "Roboto", sans-serif;
+  color: var(--conan-text);
+}
+
+.conan.actor .window-content,
+.conan.item .window-content {
+  background: var(--conan-bg-dark);
+  padding: 0;
+}
+
+/* Actor Header */
+.actor-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--conan-bg-light);
+  border-bottom: 2px solid var(--conan-primary);
+}
+
+.actor-header .profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid var(--conan-primary);
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.actor-header .header-center {
+  flex: 1;
+}
+
+.actor-header .actor-name input {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: transparent;
+  border: none;
+  color: var(--conan-text);
+  width: 100%;
+}
+
+.actor-header .origin-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.actor-header .origin-info select {
+  background: var(--conan-bg-dark);
+  color: var(--conan-text);
+  border: 1px solid var(--conan-border);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.actor-header .xp-box {
+  text-align: center;
+}
+
+.actor-header .xp-box label {
+  display: block;
+  font-size: 0.8rem;
+  margin-bottom: 0.25rem;
+}
+
+.actor-header .xp-box input {
+  width: 60px;
+  text-align: center;
+  background: var(--conan-bg-dark);
+  border: 1px solid var(--conan-border);
+  color: var(--conan-text);
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+/* Tabs */
+.conan nav.tabs {
+  background: var(--conan-bg-light);
+  border-bottom: 2px solid var(--conan-primary);
+  padding: 0;
+  margin: 0;
+  gap: 0;
+}
+
+.conan nav.tabs .item {
+  flex: 1;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border-right: 1px solid var(--conan-border);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.conan nav.tabs .item:hover {
+  background: var(--conan-bg-dark);
+}
+
+.conan nav.tabs .item.active {
+  background: var(--conan-primary);
+  color: white;
+}
+
+/* Tab Content */
+.tab-content {
+  padding: 1rem;
+}
+
+/* Stats Row */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-box {
+  background: var(--conan-bg-light);
+  border: 2px solid var(--conan-border);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.stat-box.might { border-color: var(--conan-might); }
+.stat-box.edge { border-color: var(--conan-edge); }
+.stat-box.grit { border-color: var(--conan-grit); }
+.stat-box.wits { border-color: var(--conan-wits); }
+
+.stat-box .stat-header h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.stat-box.might .stat-header h3 { color: var(--conan-might); }
+.stat-box.edge .stat-header h3 { color: var(--conan-edge); }
+.stat-box.grit .stat-header h3 { color: var(--conan-grit); }
+.stat-box.wits .stat-header h3 { color: var(--conan-wits); }
+
+.stat-content {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.stat-value-group,
+.stat-die-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.stat-value-group label,
+.stat-die-group label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--conan-text-dim);
+}
+
+.stat-value-group input,
+.stat-die-group select {
+  width: 60px;
+  text-align: center;
+  padding: 0.25rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: var(--conan-bg-dark);
+  border: 1px solid var(--conan-border);
+  color: var(--conan-text);
+  border-radius: 4px;
+}
+
+.stat-roll {
+  width: 100%;
+  padding: 0.5rem;
+  background: var(--conan-primary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.stat-roll:hover {
+  background: #a00;
+}
+
+/* Origin Bonuses */
+.origin-bonuses {
+  background: var(--conan-bg-light);
+  border: 1px solid var(--conan-border);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.origin-bonuses h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.origin-bonuses textarea {
+  width: 100%;
+  background: var(--conan-bg-dark);
+  border: 1px solid var(--conan-border);
+  color: var(--conan-text);
+  padding: 0.5rem;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+/* Combat Grid */
+.combat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.stat-block {
+  background: var(--conan-bg-light);
+  border: 1px solid var(--conan-border);
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.stat-block-header h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--conan-border);
+  padding-bottom: 0.25rem;
+}
+
+/* Resource Bars */
+.resource-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.resource-bar input {
+  width: 60px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: var(--conan-bg-dark);
+  border: 1px solid var(--conan-border);
+  color: var(--conan-text);
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+.resource-bar .separator {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.resource-bar .stamina-max {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--conan-secondary);
+}
+
+.resource-visual {
+  height: 10px;
+  background: var(--conan-bg-dark);
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.resource-visual .bar-fill {
+  height: 100%;
+  transition: width 0.3s;
+}
+
+.resource-visual .life-bar {
+  background: linear-gradient(90deg, #c00, #f00);
+}
+
+/* Stamina Controls */
+.stamina-controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.stamina-adjust {
+  flex: 1;
+  padding: 0.5rem;
+  background: var(--conan-secondary);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.stamina-adjust:hover {
+  background: #d4a017;
+}
+
+/* Defense Grid */
+.defense-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.defense-calculation {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.defense-calculation input {
+  width: 60px;
+  text-align: center;
+  background: var(--conan-bg-dark);
+  border: 1px solid var(--conan-border);
+  color: var(--conan-text);
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+.defense-bonus {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.defense-bonus button {
+  padding: 0.25rem 0.5rem;
+  background: var(--conan-bg-dark);
+  border: 1px solid var(--conan-border);
+  border-radius: 3px;
+  cursor: pointer;
+  color: var(--conan-text);
+  transition: background 0.2s;
+}
+
+.defense-bonus button:hover {
+  background: var(--conan-border);
+}
+
+.defense-total {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--conan-primary);
+  min-width: 40px;
+  text-align: center;
+}
+
+/* Recovery Pips */
+.recovery-tracker {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  justify-content: center;
+}
+
+.recovery-pip {
+  font-size: 1.5rem;
+  color: #444;
+}
+
+.recovery-pip.available {
+  color: var(--conan-primary);
+}
+
+.use-recovery {
+  width: 100%;
+  padding: 0.5rem;
+  background: var(--conan-tertiary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.use-recovery:hover {
+  background: #3f6f6f;
+}
+
+.use-recovery:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Flex Die */
+.flex-die select {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background: var(--conan-bg-dark);
+  border: 1px solid var(--conan-border);
+  color: var(--conan-text);
+  border-radius: 4px;
+}
+
+.flex-info {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--conan-text-dim);
+}
+
+/* Threshold (Minions) */
+.threshold-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.threshold-info input {
+  width: 80px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: var(--conan-bg-dark);
+  border: 1px solid var(--conan-border);
+  color: var(--conan-text);
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+.threshold-status .hit {
+  color: #ff4444;
+}
+
+.threshold-status .unhit {
+  color: #44ff44;
+}
+
+/* AR Range */
+.ar-range {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.ar-range input {
+  width: 60px;
+  text-align: center;
+  background: var(--conan-bg-dark);
+  border: 1px solid var(--conan-border);
+  color: var(--conan-text);
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+/* Items Lists */
+.items-section {
+  margin-bottom: 1.5rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--conan-primary);
+}
+
+.section-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+.item-create {
+  padding: 0.25rem 0.75rem;
+  background: var(--conan-secondary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.item-create:hover {
+  background: #d4a017;
+}
+
+.items-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.items-list .item-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: var(--conan-bg-dark);
+  border-bottom: 1px solid var(--conan-border);
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.items-list .item {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: var(--conan-bg-light);
+  border-bottom: 1px solid var(--conan-border);
+  align-items: center;
+  transition: background 0.2s;
+}
+
+.items-list .item:hover {
+  background: var(--conan-bg-dark);
+}
+
+.item-name {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.item-name img {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  border: 1px solid var(--conan-border);
+}
+
+.item-name h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.item-name .equipped {
+  color: var(--conan-secondary);
+}
+
+.item-controls {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: flex-end;
+}
+
+.item-control {
+  padding: 0.25rem 0.5rem;
+  background: var(--conan-bg-dark);
+  border: 1px solid var(--conan-border);
+  border-radius: 3px;
+  cursor: pointer;
+  color: var(--conan-text);
+  transition: background 0.2s;
+}
+
+.item-control:hover {
+  background: var(--conan-border);
+}
+
+/* Armor Summary */
+.armor-summary {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem;
+  background: var(--conan-bg-dark);
+  border: 1px solid var(--conan-border);
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+
+.armor-stat {
+  text-align: center;
+}
+
+.armor-stat label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--conan-text-dim);
+  margin-bottom: 0.25rem;
+}
+
+.armor-stat .value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--conan-secondary);
+}
+
+/* Skills List */
+.skills-list .skill-item {
+  background: var(--conan-bg-light);
+  border: 1px solid var(--conan-border);
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.skill-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.skill-header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid var(--conan-border);
+}
+
+.skill-info {
+  flex: 1;
+}
+
+.skill-info h4 {
+  margin: 0 0 0.25rem 0;
+}
+
+.stamina-cost {
+  font-size: 0.8rem;
+  color: var(--conan-secondary);
+}
+
+.skill-effect {
+  padding: 0.5rem;
+  background: var(--conan-bg-dark);
+  border-radius: 4px;
+}
+
+/* Spells List */
+.spells-list .spell-item {
+  background: var(--conan-bg-light);
+  border: 1px solid var(--conan-border);
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.spell-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.spell-header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid var(--conan-border);
+}
+
+.spell-info {
+  flex: 1;
+}
+
+.spell-info h4 {
+  margin: 0 0 0.25rem 0;
+}
+
+.spell-info .discipline {
+  font-size: 0.8rem;
+  color: var(--conan-secondary);
+  text-transform: uppercase;
+}
+
+.spell-cast {
+  background: var(--conan-primary) !important;
+  color: white !important;
+}
+
+.spell-cast:hover {
+  background: #a00 !important;
+}
+
+.spell-details {
+  padding: 0.5rem;
+  background: var(--conan-bg-dark);
+  border-radius: 4px;
+}
+
+.spell-costs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.spell-costs .cost,
+.spell-costs .actions,
+.spell-costs .range {
+  font-size: 0.9rem;
+  padding: 0.25rem 0.5rem;
+  background: var(--conan-bg-light);
+  border-radius: 4px;
+}
+
+.spell-effect p {
+  margin: 0;
+}
+
+/* Chat Cards */
+.conan.chat-card {
+  background: var(--conan-bg-light);
+  border: 2px solid var(--conan-primary);
+  border-radius: 8px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.conan.chat-card .card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: var(--conan-primary);
+  color: white;
+}
+
+.conan.chat-card .card-header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.conan.chat-card .card-header h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.conan.chat-card .card-header .actor-name {
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+.conan.chat-card .card-content {
+  padding: 1rem;
+}
+
+.conan.chat-card .roll-result {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.conan.chat-card .roll-result .total {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--conan-secondary);
+}
+
+.conan.chat-card .roll-result .total.crit-fail {
+  color: #ff4444;
+}
+
+.conan.chat-card .roll-result .formula {
+  font-size: 0.9rem;
+  color: var(--conan-text-dim);
+}
+
+.conan.chat-card .flex-result {
+  padding: 0.75rem;
+  background: var(--conan-bg-dark);
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.conan.chat-card .flex-result.flex-triggered {
+  border: 2px solid var(--conan-secondary);
+  background: rgba(184, 134, 11, 0.1);
+}
+
+.conan.chat-card .flex-die {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.conan.chat-card .flex-notice {
+  text-align: center;
+  color: var(--conan-secondary);
+  font-weight: bold;
+}
+
+.conan.chat-card .flex-options {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.conan.chat-card .massive-damage {
+  background: var(--conan-primary);
+  color: white;
+  padding: 0.75rem;
+  border-radius: 6px;
+}
+
+.conan.chat-card .damage-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 0.5rem 0;
+}
+
+.conan.chat-card .massive-total {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--conan-secondary);
+}
+
+.conan.chat-card .help-text {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin: 0.5rem 0 0 0;
+}
+
+.conan.chat-card .difficulty-info,
+.conan.chat-card .target-info,
+.conan.chat-card .damage-info {
+  text-align: center;
+  padding: 0.5rem;
+  background: var(--conan-bg-dark);
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.conan.chat-card .instruction {
+  margin: 0.25rem 0;
+}
+
+.conan.chat-card .minimum {
+  margin: 0.25rem 0;
+  font-size: 0.8rem;
+  color: var(--conan-text-dim);
+}
+
+/* Biography / Description */
+.editor-container {
+  background: var(--conan-bg-light);
+  border: 1px solid var(--conan-border);
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.editor-container .editor {
+  min-height: 300px;
+}
+
+/* Form Elements */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.form-group input[type="number"],
+.form-group input[type="text"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.5rem;
+  background: var(--conan-bg-dark);
+  border: 1px solid var(--conan-border);
+  color: var(--conan-text);
+  border-radius: 4px;
+}
+
+.form-group.checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.form-group.checkbox label {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Item Sheet Specific */
+.item-header .profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  border: 2px solid var(--conan-primary);
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.item-header .header-details {
+  flex: 1;
+}
+
+.item-header .item-name input {
+  font-size: 1.3rem;
+  font-weight: bold;
+  background: transparent;
+  border: none;
+  color: var(--conan-text);
+  width: 100%;
+}
+
+.item-header .item-type-label {
+  text-transform: uppercase;
+  color: var(--conan-text-dim);
+  font-size: 0.9rem;
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,65 @@
+{{!-- Stats Tab --}}
+<div class="tab-content stats-tab" data-tab="stats">
+  
+  {{!-- Main Stats Row --}}
+  <div class="stats-row">
+    {{#each system.stats as |stat key|}}
+    <div class="stat-box {{key}}">
+      <div class="stat-header">
+        <h3>{{lookup ../config.stats key}}</h3>
+      </div>
+      
+      <div class="stat-content">
+        {{!-- Stat Value --}}
+        <div class="stat-value-group">
+          <label>Value</label>
+          <input 
+            type="number" 
+            name="system.stats.{{key}}.value" 
+            value="{{stat.value}}" 
+            data-dtype="Number"
+            min="1"
+            max="8"
+          />
+        </div>
+        
+        {{!-- Stat Die --}}
+        <div class="stat-die-group">
+          <label>Die</label>
+          <select name="system.stats.{{key}}.die" data-dtype="String">
+            {{#select stat.die}}
+            {{#each ../config.statDice as |label value|}}
+            <option value="{{value}}">{{label}}</option>
+            {{/each}}
+            {{/select}}
+          </select>
+        </div>
+      </div>
+      
+      {{!-- Roll Button --}}
+      <button 
+        class="stat-roll" 
+        data-action="rollStat"
+        data-stat="{{key}}"
+        data-label="{{lookup ../config.stats key}}"
+        type="button"
+      >
+        <i class="fas fa-dice-d20"></i> Roll {{lookup ../config.stats key}}
+      </button>
+    </div>
+    {{/each}}
+  </div>
+
+  {{#if (eq actor.type "character")}}
+  {{!-- Origin Bonuses --}}
+  <div class="origin-bonuses">
+    <h3>Origin Bonuses</h3>
+    <textarea 
+      name="system.originBonuses" 
+      placeholder="Enter origin bonuses here..."
+      rows="3"
+    >{{system.originBonuses}}</textarea>
+  </div>
+  {{/if}}
+
+</div>

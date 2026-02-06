@@ -1,0 +1,234 @@
+{{!-- Equipment Tab --}}
+<div class="tab-content equipment-tab" data-tab="equipment">
+
+  {{!-- Weapons Section --}}
+  <div class="items-section weapons-section">
+    <div class="section-header">
+      <h3><i class="fas fa-sword"></i> Weapons</h3>
+      <button 
+        class="item-create"
+        data-action="createDoc"
+        data-document-class="Item"
+        data-type="weapon"
+        type="button"
+        title="Create Weapon"
+      >
+        <i class="fas fa-plus"></i> Add Weapon
+      </button>
+    </div>
+
+    <ol class="items-list">
+      <li class="item-header">
+        <div class="item-name">Name</div>
+        <div class="item-type">Type</div>
+        <div class="item-range">Range</div>
+        <div class="item-damage">Damage</div>
+        <div class="item-controls">Controls</div>
+      </li>
+
+      {{#each weapons as |weapon|}}
+      <li class="item" data-item-id="{{weapon.id}}" data-document-class="Item" data-drag="true">
+        <div class="item-name">
+          <img src="{{weapon.img}}" alt="{{weapon.name}}" />
+          <h4>{{weapon.name}}</h4>
+          {{#if weapon.system.equipped}}
+          <i class="fas fa-check-circle equipped" title="Equipped"></i>
+          {{/if}}
+        </div>
+        <div class="item-type">{{lookup ../config.weaponTypes weapon.system.weaponType}}</div>
+        <div class="item-range">{{lookup ../config.ranges weapon.system.range}}</div>
+        <div class="item-damage">{{weapon.system.damage.die}}</div>
+        <div class="item-controls">
+          <button 
+            class="item-control item-equip"
+            data-action="toggleEquip"
+            type="button"
+            title="{{#if weapon.system.equipped}}Unequip{{else}}Equip{{/if}}"
+          >
+            <i class="fas {{#if weapon.system.equipped}}fa-times{{else}}fa-check{{/if}}"></i>
+          </button>
+          <button 
+            class="item-control item-attack"
+            data-action="rollAttack"
+            type="button"
+            title="Roll Attack"
+          >
+            <i class="fas fa-crosshairs"></i>
+          </button>
+          <button 
+            class="item-control item-damage"
+            data-action="rollDamage"
+            type="button"
+            title="Roll Damage"
+          >
+            <i class="fas fa-burst"></i>
+          </button>
+          <button 
+            class="item-control item-edit"
+            data-action="viewDoc"
+            type="button"
+            title="Edit"
+          >
+            <i class="fas fa-edit"></i>
+          </button>
+          <button 
+            class="item-control item-delete"
+            data-action="deleteDoc"
+            type="button"
+            title="Delete"
+          >
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+      </li>
+      {{/each}}
+    </ol>
+  </div>
+
+  {{!-- Armor Section --}}
+  <div class="items-section armor-section">
+    <div class="section-header">
+      <h3><i class="fas fa-vest"></i> Armor</h3>
+      <button 
+        class="item-create"
+        data-action="createDoc"
+        data-document-class="Item"
+        data-type="armor"
+        type="button"
+        title="Create Armor"
+      >
+        <i class="fas fa-plus"></i> Add Armor
+      </button>
+    </div>
+
+    {{#if (eq actor.type "character")}}
+    <div class="armor-summary">
+      <div class="armor-stat">
+        <label>Total AR:</label>
+        <span class="value">{{totalAR}}</span>
+      </div>
+      <div class="armor-stat">
+        <label>Defense Bonus:</label>
+        <span class="value">+{{totalDefenseBonus}}</span>
+      </div>
+    </div>
+    {{/if}}
+
+    <ol class="items-list">
+      <li class="item-header">
+        <div class="item-name">Name</div>
+        <div class="item-type">Type</div>
+        <div class="item-ar">AR</div>
+        <div class="item-controls">Controls</div>
+      </li>
+
+      {{#each armor as |armor|}}
+      <li class="item" data-item-id="{{armor.id}}" data-document-class="Item" data-drag="true">
+        <div class="item-name">
+          <img src="{{armor.img}}" alt="{{armor.name}}" />
+          <h4>{{armor.name}}</h4>
+          {{#if armor.system.equipped}}
+          <i class="fas fa-check-circle equipped" title="Equipped"></i>
+          {{/if}}
+        </div>
+        <div class="item-type">{{lookup ../config.armorTypes armor.system.armorType}}</div>
+        <div class="item-ar">
+          {{#if (eq armor.system.armorType "shield")}}
+          +{{armor.system.defenseBonus}} Def
+          {{else}}
+          {{armor.system.ar}}
+          {{/if}}
+        </div>
+        <div class="item-controls">
+          <button 
+            class="item-control item-equip"
+            data-action="toggleEquip"
+            type="button"
+            title="{{#if armor.system.equipped}}Unequip{{else}}Equip{{/if}}"
+          >
+            <i class="fas {{#if armor.system.equipped}}fa-times{{else}}fa-check{{/if}}"></i>
+          </button>
+          <button 
+            class="item-control item-edit"
+            data-action="viewDoc"
+            type="button"
+            title="Edit"
+          >
+            <i class="fas fa-edit"></i>
+          </button>
+          <button 
+            class="item-control item-delete"
+            data-action="deleteDoc"
+            type="button"
+            title="Delete"
+          >
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+      </li>
+      {{/each}}
+    </ol>
+  </div>
+
+  {{!-- Gear Section --}}
+  <div class="items-section gear-section">
+    <div class="section-header">
+      <h3><i class="fas fa-backpack"></i> Gear</h3>
+      <button 
+        class="item-create"
+        data-action="createDoc"
+        data-document-class="Item"
+        data-type="gear"
+        type="button"
+        title="Create Gear"
+      >
+        <i class="fas fa-plus"></i> Add Gear
+      </button>
+    </div>
+
+    <ol class="items-list">
+      <li class="item-header">
+        <div class="item-name">Name</div>
+        <div class="item-quantity">Qty</div>
+        <div class="item-controls">Controls</div>
+      </li>
+
+      {{#each gear as |item|}}
+      <li class="item" data-item-id="{{item.id}}" data-document-class="Item" data-drag="true">
+        <div class="item-name">
+          <img src="{{item.img}}" alt="{{item.name}}" />
+          <h4>{{item.name}}</h4>
+        </div>
+        <div class="item-quantity">
+          <input 
+            type="number" 
+            name="items.{{item.id}}.system.quantity" 
+            value="{{item.system.quantity}}" 
+            data-dtype="Number"
+            min="0"
+          />
+        </div>
+        <div class="item-controls">
+          <button 
+            class="item-control item-edit"
+            data-action="viewDoc"
+            type="button"
+            title="Edit"
+          >
+            <i class="fas fa-edit"></i>
+          </button>
+          <button 
+            class="item-control item-delete"
+            data-action="deleteDoc"
+            type="button"
+            title="Delete"
+          >
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+      </li>
+      {{/each}}
+    </ol>
+  </div>
+
+</div>
