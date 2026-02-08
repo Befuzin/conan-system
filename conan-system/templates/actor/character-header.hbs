@@ -1,0 +1,145 @@
+<header class="sheet-header">
+  <div class="header-row-1">
+    <img class="profile-img" src="{{actor.img}}" data-action="editImage" alt="{{actor.name}}"/>
+    
+    <div class="header-main">
+      {{formInput fields.name name="name" value=actor.name placeholder="CONAN.CharacterName"}}
+      
+      <div class="origin-flex-row">
+        <div class="origin-field">
+          <label>{{localize "CONAN.Origin"}}</label>
+          {{formInput fields.origin name="system.origin" value=system.origin placeholder="CONAN.Origin"}}
+        </div>
+        
+        <div class="flex-die-field">
+          <label>{{localize "CONAN.FlexDie"}}</label>
+          {{formInput fields.flexDie name="system.flexDie" value=system.flexDie}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{!-- Attributes Row --}}
+  <div class="attributes-row">
+    {{#each system.attributes as |attribute key|}}
+    <div class="attribute-box">
+      <div class="attribute-header">
+        {{localize (concat "CONAN.Stats." key)}}
+      </div>
+      
+      <div class="attribute-values">
+        <div class="attribute-value">
+          <label>{{localize "CONAN.Value"}}</label>
+          {{formInput 
+            fields.attributes.fields.[key].fields.value 
+            name=(concat "system.attributes." key ".value") 
+            value=attribute.value
+          }}
+        </div>
+        
+        <div class="attribute-die">
+          <label>{{localize "CONAN.Die"}}</label>
+          {{formInput 
+            fields.attributes.fields.[key].fields.die 
+            name=(concat "system.attributes." key ".die") 
+            value=attribute.die
+          }}
+        </div>
+      </div>
+      
+      <button 
+        class="attribute-roll" 
+        type="button"
+        data-action="rollStat" 
+        data-stat="{{key}}"
+      >
+        <i class="fas fa-dice-d20"></i> {{localize "CONAN.Roll"}}
+      </button>
+    </div>
+    {{/each}}
+  </div>
+
+  {{!-- Resources Row --}}
+  <div class="resources-row">
+    <div class="resource-box life-points">
+      <label>{{localize "CONAN.LifePoints"}}</label>
+      <div class="resource-content">
+        {{formInput 
+          fields.health.fields.value 
+          name="system.health.value" 
+          value=system.health.value
+          cssClass="current"
+        }}
+        <span class="sep">/</span>
+        <span class="max">{{system.health.max}}</span>
+      </div>
+      <div class="base-lp-hint">
+        {{localize "CONAN.Base"}}: 
+        {{formInput 
+          fields.baseLifePoints
+          name="system.baseLifePoints" 
+          value=system.baseLifePoints
+          cssClass="base-input"
+        }}
+      </div>
+    </div>
+    
+    <div class="resource-box stamina">
+      <label>{{localize "CONAN.StaminaPoints"}}</label>
+      <div class="resource-content">
+        {{formInput 
+          fields.stamina.fields.value 
+          name="system.stamina.value" 
+          value=system.stamina.value
+          cssClass="current"
+        }}
+        <span class="sep">/</span>
+        <span class="max">{{system.stamina.max}}</span>
+      </div>
+    </div>
+
+    <div class="resource-box recoveries">
+      <label>{{localize "CONAN.Recoveries"}}</label>
+      <div class="resource-content">
+        {{formInput 
+          fields.recoveries.fields.value 
+          name="system.recoveries.value" 
+          value=system.recoveries.value
+          cssClass="current"
+        }}
+        <span class="sep">/</span>
+        {{formInput 
+          fields.recoveries.fields.max 
+          name="system.recoveries.max" 
+          value=system.recoveries.max
+          cssClass="max"
+        }}
+      </div>
+    </div>
+
+    <div class="defense-box">
+      <label>{{localize "CONAN.PhysicalDefense"}}</label>
+      <div class="defense-value">{{system.defenses.physical.value}}</div>
+    </div>
+
+    <div class="defense-box">
+      <label>{{localize "CONAN.SorceryDefense"}}</label>
+      <div class="defense-value">{{system.defenses.sorcery.value}}</div>
+    </div>
+
+    <div class="defense-box">
+      <label>{{localize "CONAN.ArmorRating"}}</label>
+      <div class="defense-value">{{system.armor.rating}}</div>
+    </div>
+
+    <div class="recovery-button-box">
+      <button 
+        class="use-recovery" 
+        type="button"
+        data-action="useRecovery"
+      >
+        <i class="fas fa-heart"></i> {{localize "CONAN.UseRecovery"}}
+      </button>
+    </div>
+  </div>
+</header>

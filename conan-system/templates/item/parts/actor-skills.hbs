@@ -1,0 +1,132 @@
+<div class="tab skills" data-group="primary" data-tab="skills">
+  <div class="skills-grid">
+    
+    {{!-- Skills Column --}}
+    <div class="skills-column">
+      <h3 class="section-header">
+        <i class="fas fa-star"></i> {{localize "CONAN.Skills"}}
+        <button 
+          type="button"
+          data-action="createItem" 
+          data-type="skill"
+          title="{{localize 'CONAN.CreateSkill'}}"
+        >
+          <i class="fas fa-plus"></i>
+        </button>
+      </h3>
+      
+      {{#if skills.length}}
+      <ol class="items-list compact skills-list">
+        {{#each skills as |skill|}}
+        <li class="item flexrow" data-item-id="{{skill.id}}">
+          <div class="item-image-small">
+            <img src="{{skill.img}}" alt="{{skill.name}}" width="20" height="20"/>
+          </div>
+          
+          <h4 class="item-name">{{skill.name}}</h4>
+          
+          <div class="item-controls">
+            <span class="item-detail small attribute-badge">
+              {{localize (concat "CONAN.StatsAbbr." skill.attribute)}}
+            </span>
+            
+            {{#if skill.bonus}}
+            <span class="item-detail small bonus-badge">
+              {{#if (gt skill.bonus 0)}}+{{/if}}{{skill.bonus}}
+            </span>
+            {{/if}}
+            
+            <button 
+              type="button"
+              data-action="editItem" 
+              title="{{localize 'CONAN.Edit'}}"
+            >
+              <i class="fas fa-edit"></i>
+            </button>
+            
+            <button 
+              type="button"
+              data-action="deleteItem" 
+              title="{{localize 'CONAN.Delete'}}"
+            >
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        </li>
+        {{/each}}
+      </ol>
+      {{else}}
+      <div class="empty-section">
+        <p>{{localize "CONAN.NoSkills"}}</p>
+      </div>
+      {{/if}}
+    </div>
+
+    {{!-- Talents Column --}}
+    <div class="talents-column">
+      <h3 class="section-header">
+        <i class="fas fa-fist-raised"></i> {{localize "CONAN.Talents"}}
+        <button 
+          type="button"
+          data-action="createItem" 
+          data-type="talent"
+          title="{{localize 'CONAN.CreateTalent'}}"
+        >
+          <i class="fas fa-plus"></i>
+        </button>
+      </h3>
+      
+      {{#if talents.length}}
+      <ol class="items-list compact talents-list">
+        {{#each talents as |talent|}}
+        <li class="item flexrow" data-item-id="{{talent.id}}">
+          <div class="item-image-small">
+            <img src="{{talent.img}}" alt="{{talent.name}}" width="20" height="20"/>
+          </div>
+          
+          <h4 class="item-name">{{talent.name}}</h4>
+          
+          <div class="item-controls">
+            {{#if talent.hasLimitedUses}}
+            <span class="item-detail small uses-badge">
+              {{talent.uses.value}}/{{talent.uses.max}}
+            </span>
+            
+            <button 
+              type="button"
+              data-action="useTalent" 
+              title="{{localize 'CONAN.UseTalent'}}"
+              {{#unless (gt talent.uses.value 0)}}disabled{{/unless}}
+            >
+              <i class="fas fa-hand-sparkles"></i>
+            </button>
+            {{/if}}
+            
+            <button 
+              type="button"
+              data-action="editItem" 
+              title="{{localize 'CONAN.Edit'}}"
+            >
+              <i class="fas fa-edit"></i>
+            </button>
+            
+            <button 
+              type="button"
+              data-action="deleteItem" 
+              title="{{localize 'CONAN.Delete'}}"
+            >
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        </li>
+        {{/each}}
+      </ol>
+      {{else}}
+      <div class="empty-section">
+        <p>{{localize "CONAN.NoTalents"}}</p>
+      </div>
+      {{/if}}
+    </div>
+    
+  </div>
+</div>

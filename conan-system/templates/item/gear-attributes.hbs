@@ -1,0 +1,22 @@
+<div class="tab attributes" data-group="primary" data-tab="attributes">
+  <div class="form-group">
+    <label>{{localize "CONAN.Gear.Quantity"}}</label>
+    {{formInput 
+      fields.quantity 
+      name="system.quantity" 
+      value=system.quantity
+    }}
+  </div>
+
+  <div class="form-group">
+    <label class="checkbox">
+      {{formInput 
+        fields.isBundle 
+        name="system.isBundle" 
+        value=system.isBundle
+      }}
+      {{localize "CONAN.Gear.IsBundle"}}
+    </label>
+    <p class="hint">{{localize "CONAN.Gear.IsBundleHint"}}</p>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="tab attributes" data-group="primary" data-tab="attributes">
+  <div class="form-group">
+    <label>{{localize "CONAN.Armor.Rating"}}</label>
+    {{formInput 
+      fields.armorRating 
+      name="system.armorRating" 
+      value=system.armorRating
+    }}
+  </div>
+
+  <div class="form-group">
+    <label>{{localize "CONAN.Armor.Type"}}</label>
+    {{formInput 
+      fields.armorType 
+      name="system.armorType" 
+      value=system.armorType
+    }}
+  </div>
+
+  <div class="form-group">
+    <label>{{localize "CONAN.Armor.Encumbrance"}}</label>
+    {{formInput 
+      fields.encumbranceValue 
+      name="system.encumbranceValue" 
+      value=system.encumbranceValue
+    }}
+    <p class="hint">{{localize "CONAN.Armor.EncumbranceHint"}}</p>
+  </div>
+
+  <div class="form-group">
+    <label class="checkbox">
+      {{formInput 
+        fields.equipped 
+        name="system.equipped" 
+        value=system.equipped
+      }}
+      {{localize "CONAN.Armor.Equipped"}}
+    </label>
+  </div>
+  
+  {{#if system.armorType}}
+  <div class="armor-stipulations">
+    <h4>{{localize "CONAN.Armor.Stipulations"}}</h4>
+    <ul>
+      {{#if (eq system.armorType "light")}}
+      <li>-1 {{localize "CONAN.ToAllSorceryAttacks"}}</li>
+      <li>-1 {{localize "CONAN.ToStealthChecks"}}</li>
+      {{else if (eq system.armorType "medium")}}
+      <li>-2 {{localize "CONAN.ToAllSorceryAttacks"}}</li>
+      <li>-2 {{localize "CONAN.ToStealthChecks"}}</li>
+      <li>{{localize "CONAN.MaxTwoMoveActions"}}</li>
+      {{/if}}
+    </ul>
+  </div>
+  {{/if}}
+</div>

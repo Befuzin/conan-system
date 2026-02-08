@@ -1,0 +1,16 @@
+<div class="conan-notification healing">
+  <h3>
+    <i class="fas fa-heart"></i> 
+    {{localize "CONAN.Healing"}}
+  </h3>
+  
+  <div class="healing-info">
+    <strong>{{actor.name}}</strong> 
+    {{localize "CONAN.Regains"}} 
+    <span class="healing-amount">{{amount}}</span> 
+    {{localize "CONAN.LP"}}
+    {{#if source}}
+    {{localize "CONAN.From"}} <em>{{source}}</em>
+    {{/if}}
+  </div>
+</div>

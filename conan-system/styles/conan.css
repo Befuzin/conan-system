@@ -1,0 +1,1170 @@
+/* ===========================
+   CONAN RPG SYSTEM STYLES
+   Hyborian Age Theme
+   ApplicationV2 Compatible
+   =========================== */
+
+/* === CSS Custom Properties === */
+:root {
+  --conan-color-bg-dark: #1a1410;
+  --conan-color-bg-medium: #2d2419;
+  --conan-color-bg-light: #3d3024;
+  --conan-color-border: #6b5d4f;
+  --conan-color-metal: #8b7355;
+  --conan-color-gold: #d4af37;
+  --conan-color-blood: #8b0000;
+  --conan-color-steel: #4a4a4a;
+  --conan-color-text-light: #e8dcc4;
+  --conan-color-text-dark: #1a1410;
+  
+  /* Semantic colors */
+  --conan-color-success: #2d8b2d;
+  --conan-color-warning: #d4af37;
+  --conan-color-danger: #8b0000;
+  --conan-color-info: #5a5a8b;
+  
+  /* Spacing */
+  --conan-spacing-xs: 4px;
+  --conan-spacing-sm: 8px;
+  --conan-spacing-md: 12px;
+  --conan-spacing-lg: 16px;
+  --conan-spacing-xl: 24px;
+  
+  /* Typography */
+  --conan-font-family-primary: "Cinzel", "Palatino Linotype", serif;
+  --conan-font-family-secondary: "Roboto", sans-serif;
+  
+  /* Transitions */
+  --conan-transition-fast: 0.2s ease;
+  --conan-transition-normal: 0.3s ease;
+}
+
+/* === Global Sheet Styles === */
+.conan.sheet {
+  font-family: var(--conan-font-family-primary);
+  color: var(--conan-color-text-light);
+}
+
+.conan.sheet .window-content {
+  background: linear-gradient(
+    135deg, 
+    var(--conan-color-bg-dark) 0%, 
+    var(--conan-color-bg-medium) 100%
+  );
+  background-image: 
+    linear-gradient(
+      135deg, 
+      var(--conan-color-bg-dark) 0%, 
+      var(--conan-color-bg-medium) 100%
+    ),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect fill="%231a1410" width="100" height="100"/><path d="M0 0 L100 100 M100 0 L0 100" stroke="%23ffffff" stroke-width="0.5" opacity="0.02"/></svg>');
+  color: var(--conan-color-text-light);
+}
+
+/* === Form Elements === */
+.conan.sheet input[type="text"],
+.conan.sheet input[type="number"],
+.conan.sheet select,
+.conan.sheet textarea {
+  font-family: var(--conan-font-family-primary);
+  background: var(--conan-color-bg-dark);
+  color: var(--conan-color-text-light);
+  border: 2px solid var(--conan-color-steel);
+  border-radius: 0;
+  padding: 6px 8px;
+  font-weight: bold;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+  transition: var(--conan-transition-fast);
+}
+
+.conan.sheet input[type="text"]:focus,
+.conan.sheet input[type="number"]:focus,
+.conan.sheet select:focus,
+.conan.sheet textarea:focus {
+  outline: none;
+  border-color: var(--conan-color-gold);
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+}
+
+.conan.sheet input[type="text"]::placeholder,
+.conan.sheet input[type="number"]::placeholder,
+.conan.sheet textarea::placeholder {
+  color: var(--conan-color-metal);
+  opacity: 0.6;
+}
+
+.conan.sheet input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: var(--conan-spacing-sm);
+  cursor: pointer;
+}
+
+.conan.sheet select {
+  cursor: pointer;
+}
+
+.conan.sheet select option {
+  background: var(--conan-color-bg-dark);
+  color: var(--conan-color-text-light);
+  padding: 5px;
+}
+
+/* === Buttons === */
+.conan.sheet button {
+  font-family: var(--conan-font-family-primary);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid var(--conan-color-steel);
+  border-radius: 0;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: var(--conan-transition-fast);
+  background: linear-gradient(
+    180deg, 
+    var(--conan-color-blood) 0%, 
+    #5a0000 100%
+  );
+  color: var(--conan-color-text-light);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 3px 6px rgba(0, 0, 0, 0.6);
+}
+
+.conan.sheet button:hover {
+  background: linear-gradient(
+    180deg, 
+    #a00000 0%, 
+    var(--conan-color-blood) 100%
+  );
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 0 12px rgba(139, 0, 0, 0.6);
+  transform: translateY(-1px);
+}
+
+.conan.sheet button:active {
+  transform: translateY(1px);
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.conan.sheet button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* === Sheet Header === */
+.conan.sheet .sheet-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--conan-spacing-md);
+  margin-bottom: var(--conan-spacing-md);
+  padding: var(--conan-spacing-lg);
+  background: linear-gradient(
+    180deg, 
+    var(--conan-color-bg-medium) 0%, 
+    var(--conan-color-bg-dark) 100%
+  );
+  border: 3px solid var(--conan-color-metal);
+  border-radius: 0;
+  box-shadow: 
+    inset 0 2px 0 rgba(255, 255, 255, 0.1),
+    0 4px 8px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.conan.sheet .sheet-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg, 
+    transparent 0%, 
+    var(--conan-color-gold) 20%, 
+    var(--conan-color-gold) 80%, 
+    transparent 100%
+  );
+  opacity: 0.6;
+}
+
+/* Header Row 1: Portrait + Name + Meta */
+.conan.sheet .header-row-1 {
+  display: flex;
+  gap: var(--conan-spacing-lg);
+  align-items: flex-start;
+}
+
+.conan.sheet .profile-img {
+  flex: 0 0 100px;
+  height: 100px;
+  border: 3px solid var(--conan-color-metal);
+  border-radius: 0;
+  cursor: pointer;
+  object-fit: cover;
+  box-shadow: 
+    0 0 0 1px rgba(0, 0, 0, 0.8), 
+    0 4px 8px rgba(0, 0, 0, 0.6);
+  filter: grayscale(0.1) contrast(1.1);
+  transition: var(--conan-transition-normal);
+}
+
+.conan.sheet .profile-img:hover {
+  filter: grayscale(0) contrast(1.2);
+  border-color: var(--conan-color-gold);
+  box-shadow: 
+    0 0 0 1px var(--conan-color-gold), 
+    0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+.conan.sheet .header-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--conan-spacing-md);
+}
+
+.conan.sheet h1.charname,
+.conan.sheet h1.item-name {
+  margin: 0;
+  border-bottom: 3px solid var(--conan-color-gold);
+  padding-bottom: var(--conan-spacing-sm);
+  font-size: 2.2em;
+  font-weight: 900;
+  color: var(--conan-color-gold);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 
+    2px 2px 0 var(--conan-color-bg-dark),
+    0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.conan.sheet h1.charname input,
+.conan.sheet h1.item-name input {
+  width: 100%;
+  margin: 0;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  text-shadow: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  padding: 0;
+}
+
+.conan.sheet .origin-flex-row {
+  display: flex;
+  gap: var(--conan-spacing-lg);
+}
+
+.conan.sheet .origin-field,
+.conan.sheet .flex-die-field {
+  flex: 1;
+}
+
+.conan.sheet .origin-field label,
+.conan.sheet .flex-die-field label {
+  display: block;
+  font-size: 0.7em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--conan-color-gold);
+  margin-bottom: var(--conan-spacing-xs);
+  letter-spacing: 2px;
+}
+
+/* === Attributes Row === */
+.conan.sheet .attributes-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--conan-spacing-md);
+  padding: var(--conan-spacing-md);
+  background: linear-gradient(
+    135deg, 
+    rgba(0, 0, 0, 0.3) 0%, 
+    rgba(0, 0, 0, 0.2) 100%
+  );
+  border: 2px solid var(--conan-color-border);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.conan.sheet .attribute-box {
+  display: flex;
+  flex-direction: column;
+  padding: var(--conan-spacing-md);
+  background: linear-gradient(
+    135deg, 
+    var(--conan-color-bg-medium) 0%, 
+    var(--conan-color-bg-dark) 100%
+  );
+  border: 3px solid var(--conan-color-border);
+  border-radius: 0;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+  position: relative;
+}
+
+.conan.sheet .attribute-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg, 
+    transparent, 
+    var(--conan-color-gold), 
+    transparent
+  );
+  opacity: 0.3;
+}
+
+.conan.sheet .attribute-header {
+  font-size: 1.1em;
+  font-weight: 900;
+  color: var(--conan-color-gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  padding-bottom: var(--conan-spacing-sm);
+  border-bottom: 2px solid var(--conan-color-gold);
+  margin-bottom: var(--conan-spacing-md);
+  text-shadow: 2px 2px 0 var(--conan-color-bg-dark);
+}
+
+.conan.sheet .attribute-values {
+  display: flex;
+  gap: var(--conan-spacing-sm);
+  margin-bottom: var(--conan-spacing-sm);
+}
+
+.conan.sheet .attribute-value,
+.conan.sheet .attribute-die {
+  flex: 1;
+}
+
+.conan.sheet .attribute-value label,
+.conan.sheet .attribute-die label {
+  display: block;
+  font-size: 0.6em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--conan-color-metal);
+  margin-bottom: var(--conan-spacing-xs);
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.conan.sheet .attribute-value input,
+.conan.sheet .attribute-die select {
+  width: 100%;
+  text-align: center;
+  border: 2px solid var(--conan-color-steel);
+  border-radius: 0;
+  padding: 6px 4px;
+  background: var(--conan-color-bg-dark);
+  color: var(--conan-color-text-light);
+  font-weight: bold;
+  font-size: 1.1em;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.conan.sheet .attribute-roll {
+  width: 100%;
+  padding: var(--conan-spacing-sm);
+  font-size: 0.75em;
+}
+
+/* === Resources Row === */
+.conan.sheet .resources-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--conan-spacing-sm);
+}
+
+.conan.sheet .resource-box,
+.conan.sheet .defense-box,
+.conan.sheet .recovery-button-box {
+  padding: var(--conan-spacing-sm);
+  background: linear-gradient(
+    180deg, 
+    var(--conan-color-bg-light) 0%, 
+    var(--conan-color-bg-medium) 100%
+  );
+  border: 2px solid var(--conan-color-border);
+  border-radius: 0;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.conan.sheet .resource-box label,
+.conan.sheet .defense-box label {
+  display: block;
+  font-weight: bold;
+  font-size: 0.65em;
+  text-transform: uppercase;
+  color: var(--conan-color-gold);
+  margin-bottom: var(--conan-spacing-xs);
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  text-align: center;
+}
+
+.conan.sheet .resource-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  gap: var(--conan-spacing-xs);
+}
+
+.conan.sheet .resource-content input.current,
+.conan.sheet .resource-content input.max {
+  width: 40px;
+  text-align: center;
+  border: 2px solid var(--conan-color-steel);
+  border-radius: 0;
+  padding: 4px;
+  background: var(--conan-color-bg-dark);
+  color: var(--conan-color-text-light);
+  font-weight: bold;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.conan.sheet .resource-content .sep {
+  color: var(--conan-color-metal);
+  font-weight: bold;
+}
+
+.conan.sheet .resource-content .max {
+  color: var(--conan-color-gold);
+}
+
+.conan.sheet .defense-box .defense-value {
+  font-size: 1.8em;
+  font-weight: 900;
+  color: var(--conan-color-gold);
+  text-align: center;
+  text-shadow: 
+    2px 2px 0 var(--conan-color-bg-dark),
+    0 0 8px rgba(212, 175, 55, 0.3);
+}
+
+.conan.sheet .base-lp-hint,
+.conan.sheet .threshold-hint {
+  margin-top: var(--conan-spacing-xs);
+  font-size: 0.65em;
+  color: var(--conan-color-metal);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--conan-spacing-xs);
+}
+
+.conan.sheet .base-lp-hint .base-input {
+  width: 35px;
+  text-align: center;
+  padding: 2px;
+  border: 1px solid var(--conan-color-steel);
+  background: var(--conan-color-bg-dark);
+  color: var(--conan-color-text-light);
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.conan.sheet .recovery-button-box {
+  padding: 4px;
+  background: linear-gradient(
+    135deg, 
+    rgba(34, 139, 34, 0.2) 0%, 
+    rgba(34, 139, 34, 0.1) 100%
+  );
+  border-color: #2d5a2d;
+}
+
+.conan.sheet .recovery-button-box .use-recovery {
+  width: 100%;
+  height: 100%;
+  padding: var(--conan-spacing-sm);
+  background: linear-gradient(180deg, #2d8b2d 0%, #1a5a1a 100%);
+  color: var(--conan-color-text-light);
+  border: 2px solid #1a4a1a;
+  font-size: 0.7em;
+}
+
+.conan.sheet .recovery-button-box .use-recovery:hover {
+  background: linear-gradient(180deg, #3da53d 0%, #2d8b2d 100%);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 0 12px rgba(45, 139, 45, 0.6);
+}
+
+/* === Tabs === */
+.conan.sheet .tabs {
+  height: 32px;
+  border-top: 2px solid var(--conan-color-metal);
+  border-bottom: 2px solid var(--conan-color-metal);
+  background: linear-gradient(
+    180deg, 
+    var(--conan-color-bg-medium) 0%, 
+    var(--conan-color-bg-dark) 100%
+  );
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 2px 4px rgba(0, 0, 0, 0.5);
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.conan.sheet .tabs .item {
+  line-height: 32px;
+  padding: 0 var(--conan-spacing-lg);
+  font-weight: bold;
+  color: var(--conan-color-metal);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.75em;
+  transition: var(--conan-transition-fast);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.conan.sheet .tabs .item:hover {
+  color: var(--conan-color-gold);
+  text-shadow: 0 0 6px rgba(212, 175, 55, 0.4);
+}
+
+.conan.sheet .tabs .item.active {
+  color: var(--conan-color-gold);
+  text-decoration: none;
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+  border-bottom-color: var(--conan-color-gold);
+  background: linear-gradient(
+    180deg, 
+    transparent 0%, 
+    rgba(212, 175, 55, 0.1) 100%
+  );
+}
+
+/* === Section Headers === */
+.conan.sheet .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px var(--conan-spacing-md);
+  margin: 0 0 var(--conan-spacing-sm);
+  background: linear-gradient(
+    180deg, 
+    var(--conan-color-metal) 0%, 
+    var(--conan-color-border) 100%
+  );
+  color: var(--conan-color-text-light);
+  font-weight: 900;
+  border-radius: 0;
+  border: 2px solid var(--conan-color-steel);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 2px 4px rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85em;
+}
+
+.conan.sheet .section-header i.fas {
+  margin-right: var(--conan-spacing-sm);
+  color: var(--conan-color-gold);
+}
+
+.conan.sheet .section-header button {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--conan-color-gold);
+  padding: 2px 6px;
+  font-size: 0.9em;
+  box-shadow: none;
+}
+
+.conan.sheet .section-header button:hover {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: var(--conan-color-gold);
+  box-shadow: none;
+}
+
+/* === Sheet Body === */
+.conan.sheet .sheet-body {
+  overflow: hidden;
+}
+
+.conan.sheet .sheet-body .tab {
+  height: 100%;
+  overflow-y: auto;
+  padding: var(--conan-spacing-md);
+}
+
+/* === Combat Grid === */
+.conan.sheet .combat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--conan-spacing-lg);
+}
+
+.conan.sheet .combat-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* === Skills Grid === */
+.conan.sheet .skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--conan-spacing-lg);
+}
+
+.conan.sheet .skills-column,
+.conan.sheet .talents-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* === Items Lists === */
+.conan.sheet .items-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.conan.sheet .items-list .item {
+  display: flex;
+  align-items: center;
+  padding: var(--conan-spacing-sm);
+  margin-bottom: 3px;
+  background: linear-gradient(
+    90deg, 
+    var(--conan-color-bg-light) 0%, 
+    var(--conan-color-bg-medium) 100%
+  );
+  border: 2px solid var(--conan-color-border);
+  border-radius: 0;
+  border-left: 4px solid var(--conan-color-steel);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: var(--conan-transition-fast);
+}
+
+.conan.sheet .items-list .item:hover {
+  background: linear-gradient(
+    90deg, 
+    var(--conan-color-bg-medium) 0%, 
+    var(--conan-color-bg-light) 100%
+  );
+  border-left-color: var(--conan-color-gold);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+  transform: translateX(2px);
+}
+
+.conan.sheet .item-image {
+  flex: 0 0 32px;
+  margin-right: var(--conan-spacing-md);
+  border: 2px solid var(--conan-color-steel);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6);
+  line-height: 0;
+}
+
+.conan.sheet .item-image-small {
+  flex: 0 0 20px;
+  margin-right: var(--conan-spacing-sm);
+  border: 2px solid var(--conan-color-steel);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6);
+  line-height: 0;
+}
+
+.conan.sheet .item-image img,
+.conan.sheet .item-image-small img {
+  display: block;
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.conan.sheet .item-name {
+  flex: 2;
+  margin: 0;
+  font-size: 1em;
+  font-weight: bold;
+  color: var(--conan-color-text-light);
+}
+
+.conan.sheet .item-details {
+  flex: 1;
+  display: flex;
+  gap: var(--conan-spacing-sm);
+  align-items: center;
+}
+
+.conan.sheet .item-controls {
+  flex: 0 0 auto;
+  display: flex;
+  gap: var(--conan-spacing-sm);
+  align-items: center;
+}
+
+.conan.sheet .item-detail {
+  padding: 4px var(--conan-spacing-md);
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--conan-color-steel);
+  border-radius: 0;
+  font-size: 0.85em;
+  font-weight: bold;
+  color: var(--conan-color-gold);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  white-space: nowrap;
+}
+
+.conan.sheet .item-detail.small {
+  padding: 2px 6px;
+  font-size: 0.75em;
+}
+
+.conan.sheet .item-controls button {
+  padding: 4px var(--conan-spacing-sm);
+  color: var(--conan-color-metal);
+  background: transparent;
+  border: 1px solid transparent;
+  box-shadow: none;
+  font-size: 0.85em;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.conan.sheet .item-controls button:hover {
+  color: var(--conan-color-gold);
+  border-color: var(--conan-color-gold);
+  background: rgba(212, 175, 55, 0.1);
+  text-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
+  transform: none;
+}
+
+/* Specific button styles */
+.conan.sheet .cast-spell-btn {
+  background: linear-gradient(180deg, #5a5a8b 0%, #3a3a5a 100%) !important;
+  border-color: #2a2a4a !important;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 3px 6px rgba(0, 0, 0, 0.6) !important;
+}
+
+.conan.sheet .cast-spell-btn:hover {
+  background: linear-gradient(180deg, #6a6a9b 0%, #4a4a6a 100%) !important;
+}
+
+/* === Compact Items Lists === */
+.conan.sheet .items-list.compact .item {
+  padding: 4px 6px;
+  margin-bottom: 2px;
+  min-height: auto;
+}
+
+.conan.sheet .items-list.compact .item-image-small {
+  flex: 0 0 20px;
+  margin-right: var(--conan-spacing-sm);
+}
+
+.conan.sheet .items-list.compact .item-name {
+  font-size: 0.9em;
+}
+
+.conan.sheet .items-list.compact .item-controls {
+  gap: 4px;
+}
+
+.conan.sheet .items-list.compact .item-detail.small {
+  padding: 2px 6px;
+  font-size: 0.75em;
+}
+
+.conan.sheet .items-list.compact .item-controls button {
+  padding: 2px 5px;
+  font-size: 0.85em;
+}
+
+/* === Badges === */
+.conan.sheet .attribute-badge,
+.conan.sheet .bonus-badge,
+.conan.sheet .uses-badge,
+.conan.sheet .bundle-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--conan-color-steel);
+  border-radius: 0;
+  font-size: 0.75em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.conan.sheet .attribute-badge {
+  background: linear-gradient(135deg, #3a3a5a 0%, #2a2a4a 100%);
+  color: var(--conan-color-gold);
+}
+
+.conan.sheet .bonus-badge {
+  background: linear-gradient(135deg, #2d5a2d 0%, #1a4a1a 100%);
+  color: #90ee90;
+}
+
+.conan.sheet .uses-badge {
+  background: linear-gradient(135deg, #5a3a2a 0%, #4a2a1a 100%);
+  color: #ffa07a;
+}
+
+.conan.sheet .bundle-badge {
+  background: linear-gradient(135deg, #5a5a3a 0%, #4a4a2a 100%);
+  color: #f0e68c;
+}
+
+/* === Encumbrance Tracker === */
+.conan.sheet .encumbrance-tracker {
+  padding: var(--conan-spacing-md);
+  margin-bottom: var(--conan-spacing-lg);
+  background: linear-gradient(
+    135deg, 
+    var(--conan-color-bg-light) 0%, 
+    var(--conan-color-bg-medium) 100%
+  );
+  border: 2px solid var(--conan-color-border);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.conan.sheet .encumbrance-tracker.encumbered {
+  border-color: var(--conan-color-blood);
+  background: linear-gradient(
+    135deg, 
+    rgba(139, 0, 0, 0.2) 0%, 
+    rgba(139, 0, 0, 0.1) 100%
+  );
+}
+
+.conan.sheet .encumbrance-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--conan-spacing-md);
+  margin-bottom: var(--conan-spacing-md);
+}
+
+.conan.sheet .encumbrance-item {
+  text-align: center;
+  padding: var(--conan-spacing-sm);
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--conan-color-steel);
+}
+
+.conan.sheet .encumbrance-item label {
+  display: block;
+  font-size: 0.7em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--conan-color-gold);
+  margin-bottom: var(--conan-spacing-xs);
+  letter-spacing: 1px;
+}
+
+.conan.sheet .encumbrance-value {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: var(--conan-color-text-light);
+}
+
+.conan.sheet .encumbrance-status {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.conan.sheet .encumbrance-tracker:not(.encumbered) .encumbrance-status {
+  color: #32cd32;
+}
+
+.conan.sheet .encumbrance-tracker.encumbered .encumbrance-status {
+  color: #ff4444;
+}
+
+.conan.sheet .encumbrance-warning {
+  padding: var(--conan-spacing-md);
+  background: rgba(139, 0, 0, 0.3);
+  border: 2px solid var(--conan-color-blood);
+  color: var(--conan-color-text-light);
+  font-size: 0.85em;
+  text-align: center;
+}
+
+.conan.sheet .encumbrance-warning i {
+  color: #ff4444;
+  margin-right: var(--conan-spacing-xs);
+}
+
+/* === Empty States === */
+.conan.sheet .empty-section {
+  text-align: center;
+  padding: var(--conan-spacing-xl);
+  color: var(--conan-color-metal);
+  font-style: italic;
+}
+
+.conan.sheet .empty-section p {
+  margin: var(--conan-spacing-xs) 0;
+}
+
+.conan.sheet .empty-section .hint {
+  font-size: 0.85em;
+  opacity: 0.7;
+}
+
+/* === Info Sections === */
+.conan.sheet .sorcery-info,
+.conan.sheet .gear-info {
+  margin-top: var(--conan-spacing-xl);
+  padding: var(--conan-spacing-md);
+  background: rgba(0, 0, 0, 0.3);
+  border-left: 3px solid var(--conan-color-gold);
+}
+
+.conan.sheet .sorcery-info h4,
+.conan.sheet .gear-info h4 {
+  margin: 0 0 var(--conan-spacing-sm);
+  color: var(--conan-color-gold);
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.conan.sheet .sorcery-reminders,
+.conan.sheet .gear-reminders {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.conan.sheet .sorcery-reminders li,
+.conan.sheet .gear-reminders li {
+  padding: var(--conan-spacing-xs) 0;
+  font-size: 0.85em;
+  color: var(--conan-color-metal);
+}
+
+.conan.sheet .sorcery-reminders li i,
+.conan.sheet .gear-reminders li i {
+  margin-right: var(--conan-spacing-sm);
+  color: var(--conan-color-gold);
+}
+
+/* === Form Groups (Item Sheets) === */
+.conan.sheet .form-group {
+  margin: var(--conan-spacing-lg) 0;
+}
+
+.conan.sheet .form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: var(--conan-color-gold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85em;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.conan.sheet .form-group label.checkbox {
+  display: flex;
+  align-items: center;
+  text-transform: none;
+}
+
+.conan.sheet .form-group .hint {
+  margin: var(--conan-spacing-xs) 0 0;
+  font-size: 0.75em;
+  font-style: italic;
+  color: var(--conan-color-metal);
+}
+
+.conan.sheet .uses-row {
+  display: flex;
+  align-items: center;
+  gap: var(--conan-spacing-sm);
+}
+
+.conan.sheet .uses-row input {
+  width: auto;
+  flex: 1;
+}
+
+.conan.sheet .uses-row .sep {
+  color: var(--conan-color-gold);
+  font-weight: bold;
+}
+
+.conan.sheet .armor-stipulations {
+  margin-top: var(--conan-spacing-lg);
+  padding: var(--conan-spacing-md);
+  background: rgba(0, 0, 0, 0.3);
+  border-left: 3px solid var(--conan-color-blood);
+}
+
+.conan.sheet .armor-stipulations h4 {
+  margin: 0 0 var(--conan-spacing-sm);
+  color: var(--conan-color-gold);
+  font-size: 0.9em;
+  text-transform: uppercase;
+}
+
+.conan.sheet .armor-stipulations ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.conan.sheet .armor-stipulations li {
+  padding: var(--conan-spacing-xs) 0;
+  font-size: 0.85em;
+  color: var(--conan-color-metal);
+}
+
+.conan.sheet .armor-stipulations li::before {
+  content: "▸ ";
+  color: var(--conan-color-blood);
+  margin-right: var(--conan-spacing-xs);
+}
+
+/* === Editor (ProseMirror) === */
+.conan.sheet .editor {
+  min-height: 300px;
+  border: 2px solid var(--conan-color-steel);
+  border-radius: 0;
+  background: var(--conan-color-bg-dark);
+}
+
+.conan.sheet .editor .editor-content {
+  background: var(--conan-color-bg-dark);
+  color: var(--conan-color-text-light);
+  padding: var(--conan-spacing-md);
+}
+
+.conan.sheet .notes-content {
+  padding: var(--conan-spacing-md);
+}
+
+/* === Scrollbars === */
+.conan.sheet ::-webkit-scrollbar {
+  width: 12px;
+  background: var(--conan-color-bg-dark);
+}
+
+.conan.sheet ::-webkit-scrollbar-track {
+  background: var(--conan-color-bg-dark);
+  border: 1px solid var(--conan-color-steel);
+}
+
+.conan.sheet ::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg, 
+    var(--conan-color-metal) 0%, 
+    var(--conan-color-border) 100%
+  );
+  border: 1px solid var(--conan-color-steel);
+}
+
+.conan.sheet ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg, 
+    var(--conan-color-gold) 0%, 
+    var(--conan-color-metal) 100%
+  );
+}
+
+/* === Window Title === */
+.conan.sheet .window-title {
+  font-family: var(--conan-font-family-primary);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* === Minion-specific styles === */
+.conan.sheet.minion .header-fields {
+  width: 100%;
+}
+
+.conan.sheet.minion .minion-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--conan-spacing-md);
+  margin-top: var(--conan-spacing-md);
+}
+
+.conan.sheet.minion .resource {
+  display: flex;
+  flex-direction: column;
+}
+
+/* === Antagonist-specific styles === */
+.conan.sheet.antagonist .resource-group {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--conan-spacing-md);
+  margin-top: var(--conan-spacing-md);
+}
+
+/* === Responsive Adjustments === */
+@media (max-width: 800px) {
+  .conan.sheet .attributes-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .conan.sheet .resources-row {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .conan.sheet .combat-grid,
+  .conan.sheet .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .conan.sheet .header-row-1 {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .conan.sheet .profile-img {
+    flex: 0 0 80px;
+    height: 80px;
+  }
+  
+  .conan.sheet .attributes-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .conan.sheet .resources-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .conan.sheet .encumbrance-row {
+    grid-template-columns: 1fr;
+  }
+}

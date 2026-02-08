@@ -1,0 +1,19 @@
+<header class="sheet-header">
+  <img 
+    class="profile-img" 
+    src="{{item.img}}" 
+    data-action="editImage" 
+    alt="{{item.name}}"
+  />
+  
+  <div class="header-fields">
+    <h1 class="item-name">
+      {{formInput 
+        fields.name 
+        name="name" 
+        value=item.name 
+        placeholder="CONAN.ItemName"
+      }}
+    </h1>
+  </div>
+</header>

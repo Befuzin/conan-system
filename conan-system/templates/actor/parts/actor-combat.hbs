@@ -1,0 +1,117 @@
+<div class="tab combat" data-group="primary" data-tab="combat">
+  <div class="combat-grid">
+    <div class="combat-column weapons-column">
+      <h3 class="section-header">
+        <i class="fas fa-sword"></i> {{localize "CONAN.Weapons"}}
+        <button 
+          type="button"
+          data-action="createItem" 
+          data-type="weapon"
+        >
+          <i class="fas fa-plus"></i>
+        </button>
+      </h3>
+      
+      <ol class="items-list compact">
+        {{#each weapons as |weapon|}}
+        <li class="item flexrow" data-item-id="{{weapon.id}}">
+          <div class="item-image">
+            <img src="{{weapon.img}}" alt="{{weapon.name}}" width="20" height="20"/>
+          </div>
+          
+          <h4 class="item-name">{{weapon.name}}</h4>
+          
+          <div class="item-controls">
+            <span class="item-detail small">{{weapon.damage}}</span>
+            
+            <button 
+              type="button"
+              data-action="rollAttack" 
+              title="{{localize 'CONAN.Attack'}}"
+            >
+              <i class="fas fa-crosshairs"></i>
+            </button>
+            
+            <button 
+              type="button"
+              data-action="rollDamage" 
+              title="{{localize 'CONAN.Damage'}}"
+            >
+              <i class="fas fa-burst"></i>
+            </button>
+            
+            <button 
+              type="button"
+              data-action="editItem" 
+              title="{{localize 'CONAN.Edit'}}"
+            >
+              <i class="fas fa-edit"></i>
+            </button>
+            
+            <button 
+              type="button"
+              data-action="deleteItem" 
+              title="{{localize 'CONAN.Delete'}}"
+            >
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        </li>
+        {{/each}}
+      </ol>
+    </div>
+
+    <div class="combat-column armor-column">
+      <h3 class="section-header">
+        <i class="fas fa-shield"></i> {{localize "CONAN.Armor"}}
+        <button 
+          type="button"
+          data-action="createItem" 
+          data-type="armor"
+        >
+          <i class="fas fa-plus"></i>
+        </button>
+      </h3>
+      
+      <ol class="items-list compact">
+        {{#each armor as |item|}}
+        <li class="item flexrow" data-item-id="{{item.id}}">
+          <div class="item-image">
+            <img src="{{item.img}}" alt="{{item.name}}" width="20" height="20"/>
+          </div>
+          
+          <h4 class="item-name">{{item.name}}</h4>
+          
+          <div class="item-controls">
+            <span class="item-detail small">AR {{item.ar}}</span>
+            
+            <button 
+              type="button"
+              data-action="toggleEquipped" 
+              title="{{#if item.equipped}}{{localize 'CONAN.Unequip'}}{{else}}{{localize 'CONAN.Equip'}}{{/if}}"
+            >
+              <i class="fas {{#if item.equipped}}fa-shield-alt{{else}}fa-shield{{/if}}"></i>
+            </button>
+            
+            <button 
+              type="button"
+              data-action="editItem" 
+              title="{{localize 'CONAN.Edit'}}"
+            >
+              <i class="fas fa-edit"></i>
+            </button>
+            
+            <button 
+              type="button"
+              data-action="deleteItem" 
+              title="{{localize 'CONAN.Delete'}}"
+            >
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        </li>
+        {{/each}}
+      </ol>
+    </div>
+  </div>
+</div>

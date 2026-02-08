@@ -1,0 +1,61 @@
+<div class="conan-roll attack-roll">
+  <div class="dice-roll">
+    <div class="dice-result">
+      <h4 class="dice-formula">{{formula}}</h4>
+      
+      <div class="dice-tooltip">
+        {{#if autoFail}}
+        <div class="auto-fail">
+          <i class="fas fa-skull"></i> 
+          {{localize "CONAN.AutoFailure"}}
+        </div>
+        {{/if}}
+        
+        {{#if hasFlexTrigger}}
+        <div class="flex-trigger">
+          <i class="fas fa-star"></i> 
+          {{localize "CONAN.FlexTriggered"}}
+        </div>
+        {{/if}}
+        
+        {{#if focused}}
+        <div class="focused-attack">
+          <i class="fas fa-crosshairs"></i> 
+          {{localize "CONAN.FocusedAttack"}} (+2)
+        </div>
+        {{/if}}
+        
+        {{#if defense}}
+        <div class="defense">
+          {{localize "CONAN.TargetDefense"}}: {{defense}}
+        </div>
+        {{/if}}
+      </div>
+      
+      <h4 class="dice-total {{#if hit}}hit{{else if (eq hit false)}}miss{{/if}}">
+        {{total}}
+      </h4>
+      
+      {{#if hit}}
+      <div class="result-badge hit">{{localize "CONAN.Hit"}}</div>
+      {{else if (eq hit false)}}
+      <div class="result-badge miss">{{localize "CONAN.Miss"}}</div>
+      {{/if}}
+    </div>
+  </div>
+  
+  {{#if flexOptions}}
+  <div class="flex-options">
+    <h5>{{localize "CONAN.FlexSpendOptions"}}</h5>
+    {{#each flexOptions}}
+    <button 
+      class="flex-spend" 
+      data-action="spendFlex"
+      data-flex-type="{{this.id}}"
+    >
+      {{localize this.label}}
+    </button>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>

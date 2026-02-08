@@ -1,0 +1,450 @@
+{
+  "CONAN": {
+    "SystemName": "Conan: The Hyborian Age",
+    "SystemDescription": "A fast-paced heroic action RPG system featuring Flex dice mechanics and Stamina Points",
+
+    "_comment_stats": "=== STATS ===",
+    "Stats": {
+      "Might": "Might",
+      "Edge": "Edge",
+      "Grit": "Grit",
+      "Wits": "Wits"
+    },
+    
+    "StatsAbbr": {
+      "Might": "MIG",
+      "Edge": "EDG",
+      "Grit": "GRT",
+      "Wits": "WIT"
+    },
+
+    "StatsDesc": {
+      "Might": "Physical strength, used for melee attacks, climbing, swimming, and other feats of strength.",
+      "Edge": "Deftness and alertness, used for ranged attacks, stealth, awareness, and avoiding danger.",
+      "Grit": "Stamina and resilience, used to resist poison, fear, fatigue, and determines Life Points.",
+      "Wits": "Intelligence and perception, used for knowledge, social interaction, and sorcery."
+    },
+
+    "_comment_attributes": "=== ATTRIBUTES ===",
+    "Attribute": {
+      "Value": "Value",
+      "Die": "Die"
+    },
+
+    "_comment_resources": "=== RESOURCES ===",
+    "LifePoints": "Life Points",
+    "LP": "LP",
+    "StaminaPoints": "Stamina Points",
+    "SP": "SP",
+    "Stamina": "Stamina",
+    "Recoveries": "Recoveries",
+    "PhysicalDefense": "Physical Defense",
+    "SorceryDefense": "Sorcery Defense",
+    "ArmorRating": "Armor Rating",
+    "AR": "AR",
+    "FlexDie": "Flex Die",
+    "Initiative": "Initiative",
+
+    "_comment_labels": "=== COMMON LABELS ===",
+    "Name": "Name",
+    "Origin": "Origin",
+    "Value": "Value",
+    "Die": "Die",
+    "Current": "Current",
+    "Max": "Maximum",
+    "Base": "Base",
+    "Cost": "Cost",
+    "Range": "Range",
+    "Damage": "Damage",
+    "Effect": "Effect",
+    "Description": "Description",
+    "Equipped": "Equipped",
+    "Quantity": "Quantity",
+    "Qty": "Qty",
+    "Bonus": "Bonus",
+    "Uses": "Uses",
+
+    "_comment_actions": "=== ACTIONS ===",
+    "Roll": "Roll",
+    "Attack": "Attack",
+    "Cast": "Cast",
+    "Use": "Use",
+    "Edit": "Edit",
+    "Delete": "Delete",
+    "Create": "Create",
+    "Equip": "Equip",
+    "Unequip": "Unequip",
+    "Focused": "Focused",
+    "Massive": "Massive",
+
+    "Actions": {
+      "Move": "Move",
+      "Manipulate": "Manipulate",
+      "Attack": "Attack",
+      "FocusedAttack": "Focused Attack",
+      "Defend": "Defend",
+      "CastSpell": "Cast Spell"
+    },
+
+    "ActionsDesc": {
+      "Move": "Move to a new position. One Move Action covers one Range zone.",
+      "Manipulate": "Pick up, retrieve, interact with, or pass an object; ready a weapon.",
+      "Attack": "Make a Melee, Thrown, or Ranged Attack.",
+      "FocusedAttack": "Make an Attack with +2 bonus (costs 2 Actions).",
+      "Defend": "Gain +2 Physical Defense until your next Turn.",
+      "CastSpell": "Cast a spell or make a Sorcery Attack."
+    },
+
+    "_comment_weapons": "=== WEAPONS ===",
+    "Weapons": "Weapons",
+    "Weapon": {
+      "Damage": "Damage",
+      "DamageHint": "Dice notation (e.g., 1d6, 2d8+2)",
+      "Type": "Type",
+      "Range": "Range",
+      "SlotsUsed": "Equipment Slots Used",
+      "SlotsUsedHint": "Usually 1 for single weapon, 0.33 for thrown bundles"
+    },
+
+    "WeaponTypes": {
+      "Melee": "Melee",
+      "Ranged": "Ranged",
+      "Thrown": "Thrown"
+    },
+
+    "WeaponTypesDesc": {
+      "Melee": "Close combat weapons that add Might to damage.",
+      "Ranged": "Projectile weapons that use Edge for attacks.",
+      "Thrown": "Weapons that can be thrown, adding Might to damage."
+    },
+
+    "WeaponProperties": {
+      "Versatile": "Versatile",
+      "TwoHanded": "Two-Handed",
+      "Reach": "Reach",
+      "Finesse": "Finesse",
+      "Heavy": "Heavy",
+      "Light": "Light"
+    },
+
+    "_comment_armor": "=== ARMOR ===",
+    "Armor": "Armor",
+    "ArmorTypes": {
+      "Light": "Light (AR 1-3)",
+      "Medium": "Medium (AR 4-5)",
+      "Heavy": "Heavy (AR 6+)"
+    },
+
+    "ArmorTypesDesc": {
+      "Light": "Hide, leather, bone. Provides basic protection.",
+      "Medium": "Breastplate, cuirass, hauberk. Solid protection with moderate restrictions.",
+      "Heavy": "Full plate, scale mail. Maximum protection with significant restrictions."
+    },
+
+    "ArmorRating": "Armor Rating",
+    "ArmorType": "Armor Type",
+    "Encumbrance": "Encumbrance",
+    "EncumbranceValue": "Encumbrance Value",
+    "EncumbranceHint": "Character must have Might ≥ this value to avoid being Encumbered",
+
+    "Stipulations": "Stipulations",
+    "ToAllSorceryAttacks": "to all Sorcery Attacks",
+    "ToStealthChecks": "to Stealth Checks",
+    "MaxTwoMoveActions": "May never take more than 2 Move Actions in a Turn",
+
+    "_comment_gear": "=== GEAR ===",
+    "Gear": "Gear",
+    "EquipmentGear": "Equipment & Gear",
+    "Bundle": "Bundle",
+    "IsBundle": "Counts as Bundle Item",
+    "IsBundleHint": "Bundle items go in your 5-item bundle, not equipment slots",
+
+    "EquipmentSlots": "Equipment Slots",
+    "BundleItems": "Bundle Items",
+    "Status": "Status",
+    "OK": "OK",
+    "Encumbered": "ENCUMBERED",
+    "EncumberedEffect": "Encumbered:",
+    "EncumberedDesc": "Limited to 1 Move Action per turn. If wearing Heavy Armor, must spend 1 Stamina to Move.",
+
+    "EquipmentGuidelines": "Equipment Guidelines",
+    "EquipmentReminder1": "Each weapon typically uses 1 equipment slot",
+    "EquipmentReminder2": "Bundle items (rope, torches, rations) use the 5-item bundle",
+    "EquipmentReminder3": "Equipped armor's Encumbrance Value must not exceed your Might",
+
+    "_comment_spells": "=== SPELLS & SORCERY ===",
+    "Sorcery": "Sorcery",
+    "Spells": "Spells",
+    "Spell": {
+      "Cost": "Cost (Stamina)",
+      "CostHint": "Stamina or Life Points required to cast",
+      "Range": "Range",
+      "Effect": "Effect"
+    },
+
+    "CastSpell": "Cast Spell",
+    "SorceryNotes": "Sorcery Notes",
+    "SorceryReminder1": "Casting spells costs Stamina Points or Life Points",
+    "SorceryReminder2": "Sorcery is rare and often dangerous",
+    "SorceryReminder3": "Some spells require specific Actions (1 or 2)",
+
+    "Disciplines": {
+      "White": "White Magic",
+      "Black": "Black Magic",
+      "Demonic": "Demonic",
+      "Necromantic": "Necromantic",
+      "Elemental": "Elemental"
+    },
+
+    "_comment_skills": "=== SKILLS & TALENTS ===",
+    "Skills": "Skills",
+    "Skill": {
+      "Attribute": "Associated Attribute",
+      "Bonus": "Bonus",
+      "BonusHint": "Bonus added to rolls using this skill",
+      "Effect": "Effect",
+      "EffectHint": "Mechanical effect of this skill"
+    },
+
+    "Talents": "Talents",
+    "Talent": {
+      "Effect": "Effect",
+      "EffectHint": "Mechanical effect of this talent",
+      "Uses": {
+        "Value": "Current Uses",
+        "Max": "Maximum Uses",
+        "MaxHint": "Leave at 0 for unlimited use talents"
+      }
+    },
+
+    "UseTalent": "Use Talent",
+
+    "_comment_ranges": "=== RANGES ===",
+    "Ranges": {
+      "Touch": "Touch",
+      "Close": "Close",
+      "Medium": "Medium",
+      "Long": "Long",
+      "Distant": "Distant"
+    },
+
+    "RangesDesc": {
+      "Touch": "Within arm's reach",
+      "Close": "A few strides away, roughly 1 Move Action",
+      "Medium": "Across a large room or street, roughly 2 Move Actions",
+      "Long": "Far distance, visible but not easily reached, roughly 4 Move Actions",
+      "Distant": "At the edge of the battlefield, 8+ Move Actions"
+    },
+
+    "_comment_difficulties": "=== DIFFICULTIES ===",
+    "Difficulties": {
+      "Easy": "Easy (4-6)",
+      "Moderate": "Moderate (7-9)",
+      "Tough": "Tough (10-12)",
+      "Legendary": "Legendary (13+)"
+    },
+
+    "Difficulty": "Difficulty",
+    "TargetDefense": "Target Defense",
+
+    "_comment_conditions": "=== CONDITIONS ===",
+    "Conditions": {
+      "Poisoned": "Poisoned",
+      "Prone": "Prone",
+      "Dead": "Dead",
+      "Encumbered": "Encumbered",
+      "Frightened": "Frightened"
+    },
+
+    "ConditionsDesc": {
+      "Poisoned": "Character suffers penalties and may lose Life Points over time.",
+      "Prone": "Character is on the ground and must use an Action to stand.",
+      "Dead": "Character has perished.",
+      "Encumbered": "Character is overburdened and has reduced movement.",
+      "Frightened": "Character suffers penalties from fear."
+    },
+
+    "_comment_chat": "=== CHAT MESSAGES ===",
+    "Chat": {
+      "StatCheckTitle": "{stat} Check",
+      "AttackTitle": "{weapon} Attack{focused}",
+      "DamageTitle": "{weapon} Damage{massive}"
+    },
+
+    "AutoFailure": "Automatic Failure (rolled 1 on stat die)",
+    "FlexTriggered": "Flex Triggered!",
+    "FocusedAttack": "Focused Attack",
+    "MassiveDamage": "Massive Damage",
+    "ArmorReduction": "Armor Reduction",
+    "MinimumDamageNote": "Remember: minimum 1 Damage after AR",
+    
+    "Success": "Success",
+    "Failure": "Failure",
+    "Hit": "Hit",
+    "Miss": "Miss",
+
+    "Flex": {
+      "GainStamina": "Gain Stamina",
+      "GainStaminaDesc": "Immediately gain 1 Stamina Point",
+      "ForceSuccess": "Force Success",
+      "ForceSuccessDesc": "Turn this failure into a success",
+      "MassiveDamage": "Massive Damage",
+      "MassiveDamageDesc": "Add maximum weapon die value to damage",
+      "StaminaGained": "Gained 1 Stamina Point from Flex!",
+      "SuccessForced": "Flex turned failure into success!",
+      "MassiveDamageApplied": "Massive Damage! +{bonus} damage"
+    },
+
+    "FlexSpendOptions": "Flex Spend Options",
+
+    "_comment_notifications": "=== NOTIFICATIONS ===",
+    "DamageTaken": "Damage Taken",
+    "Takes": "takes",
+    "From": "from",
+    "Regains": "regains",
+    "Gains": "gains",
+    "Spends": "spends",
+    "Healing": "Healing",
+    "StaminaGained": "Stamina Gained",
+    "StaminaSpent": "Stamina Spent",
+
+    "MinionKilled": "Minion killed!",
+    "MinionMarked": "Minion marked as hit (any damage will kill)",
+    "ReducedToZero": "Reduced to 0 Life Points!",
+
+    "CharacterReduced": "Character Reduced to 0 Life Points!",
+    "CharacterReducedDesc": "has been reduced to 0 Life Points and is unconscious or barely clinging to life.",
+    "GritCheckRequired": "A Grit Check (Difficulty 8) is required to survive.",
+    "RollGritCheck": "Roll Grit Check",
+    "DeathSave": "Death Save",
+
+    "RecoveryUsed": "Recovery Used",
+    "UsesRecovery": "uses a Recovery",
+    "UseRecovery": "Use Recovery",
+    "FullyHealed": "Life Points fully restored",
+    "StaminaRestored": "Stamina Points restored to maximum",
+    "RecoveriesRestored": "All Recoveries restored",
+    "TalentsRestored": "All Talent uses restored",
+
+    "LongRest": "Long Rest",
+    "TakesLongRest": "takes a long rest and recovers fully",
+    "LongRestConfirm": "Take a long rest? This will fully restore Life Points, Stamina, Recoveries, and Talent uses.",
+
+    "ApplyDamage": "Apply Damage",
+
+    "_comment_origins": "=== ORIGINS ===",
+    "Origins": {
+      "FromTheStreets": "From the Streets",
+      "FromTheHills": "From the Hills",
+      "FromTheWilds": "From the Wilds",
+      "FromTheNorth": "From the North",
+      "FromTheBloodOfJhebbalSag": "From the Blood of Jhebbal Sag"
+    },
+
+    "_comment_tabs": "=== SHEET TABS ===",
+    "Tabs": {
+      "Combat": "Combat",
+      "Spells": "Spells",
+      "Skills": "Skills",
+      "Gear": "Gear",
+      "Notes": "Notes",
+      "Description": "Description",
+      "Attributes": "Attributes"
+    },
+
+    "_comment_sheets": "=== SHEET LABELS ===",
+    "SheetLabels": {
+      "Character": "Character Sheet",
+      "Minion": "Minion Sheet",
+      "Antagonist": "Antagonist Sheet",
+      "Weapon": "Weapon Sheet",
+      "Armor": "Armor Sheet",
+      "Gear": "Gear Sheet",
+      "Spell": "Spell Sheet",
+      "Skill": "Skill Sheet",
+      "Talent": "Talent Sheet",
+      "Item": "Item Sheet",
+      "Actor": "Actor Sheet"
+    },
+
+    "CharacterName": "Character Name",
+    "MinionName": "Minion Name",
+    "AntagonistName": "Antagonist Name",
+    "ItemName": "Item Name",
+    "Biography": "Biography",
+
+    "_comment_minions": "=== MINIONS ===",
+    "Threshold": "Threshold",
+    "ThresholdHint": "Damage needed to kill in one hit",
+    "HitStatus": "Hit Status",
+    "HitStatusHint": "Once hit, any damage kills",
+    "MinionARHint": "Not used (Threshold includes AR)",
+
+    "_comment_items": "=== ITEM MANAGEMENT ===",
+    "NewItem": "New {type}",
+    "CreateWeapon": "Create Weapon",
+    "CreateArmor": "Create Armor",
+    "CreateGear": "Create Gear",
+    "CreateSpell": "Create Spell",
+    "CreateSkill": "Create Skill",
+    "CreateTalent": "Create Talent",
+    "DeleteItem": "Delete Item",
+    "DeleteItemConfirm": "Delete {name}? This cannot be undone.",
+
+    "NoWeapons": "No weapons",
+    "NoArmor": "No armor",
+    "NoGear": "No equipment",
+    "NoGearHint": "Add items to track your character's possessions",
+    "NoSpells": "No spells",
+    "NoSpellsHint": "Create spells if your character practices sorcery",
+    "NoSkills": "No skills",
+    "NoTalents": "No talents",
+
+    "ItemType": {
+      "weapon": "Weapon",
+      "armor": "Armor",
+      "gear": "Gear",
+      "spell": "Spell",
+      "skill": "Skill",
+      "talent": "Talent"
+    },
+
+    "_comment_warnings": "=== WARNINGS ===",
+    "Warnings": {
+      "NotAWeapon": "This item is not a weapon.",
+      "NotArmor": "This item is not armor.",
+      "NotATalent": "This item is not a talent.",
+      "NotASpell": "This item is not a spell.",
+      "NoOwner": "This item must be owned by an actor.",
+      "NoTarget": "No target selected.",
+      "InsufficientStamina": "Insufficient Stamina Points.",
+      "InsufficientLifePoints": "Insufficient Life Points.",
+      "NoRecoveriesRemaining": "No Recoveries remaining.",
+      "NoUsesRemaining": "No uses remaining.",
+      "OnlyCharactersRecover": "Only Characters can use Recoveries.",
+      "CannotHealMinion": "Minions cannot be healed."
+    },
+
+    "_comment_errors": "=== ERRORS ===",
+    "Errors": {
+      "InvalidStat": "Invalid stat: {stat}",
+      "InvalidDamage": "Invalid damage amount",
+      "NoEdge": "Actor does not have Edge attribute"
+    },
+
+    "_comment_notifications_system": "=== SYSTEM NOTIFICATIONS ===",
+    "Notifications": {
+      "DamageApplied": "{damage} damage applied to {name}",
+      "CharacterReduced": "{name} has been reduced to 0 Life Points! Make a Grit check (Difficulty 8) or die!",
+      "DeathSaveSuccess": "{name} survives with 1 Life Point!",
+      "DeathSaveFailure": "{name} has died gloriously in battle."
+    },
+
+    "_comment_effects": "=== ACTIVE EFFECTS ===",
+    "Effects": {
+      "Temporary": "Temporary Effects",
+      "Passive": "Passive Effects",
+      "Inactive": "Inactive Effects"
+    }
+  }
+}

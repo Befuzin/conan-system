@@ -1,0 +1,380 @@
+/* ===========================
+   CONAN CHAT MESSAGE STYLES
+   =========================== */
+
+/* === Chat Roll Cards === */
+.conan-roll {
+  background: linear-gradient(
+    135deg, 
+    var(--conan-color-bg-medium) 0%, 
+    var(--conan-color-bg-dark) 100%
+  );
+  border: 3px solid var(--conan-color-metal);
+  border-radius: 0;
+  padding: var(--conan-spacing-lg);
+  box-shadow: 
+    inset 0 2px 0 rgba(255, 255, 255, 0.05),
+    0 4px 8px rgba(0, 0, 0, 0.8);
+  position: relative;
+  font-family: var(--conan-font-family-primary);
+  color: var(--conan-color-text-light);
+}
+
+.conan-roll::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg, 
+    transparent, 
+    var(--conan-color-gold), 
+    transparent
+  );
+  opacity: 0.4;
+}
+
+.conan-roll .dice-formula {
+  margin: 0 0 var(--conan-spacing-sm);
+  font-size: 0.85em;
+  color: var(--conan-color-metal);
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.conan-roll .dice-total {
+  font-size: 2.5em;
+  font-weight: 900;
+  color: var(--conan-color-gold);
+  margin: var(--conan-spacing-lg) 0;
+  text-align: center;
+  text-shadow: 
+    3px 3px 0 var(--conan-color-bg-dark),
+    0 0 15px rgba(212, 175, 55, 0.5);
+  letter-spacing: 3px;
+}
+
+.conan-roll .dice-total.success {
+  color: #32cd32;
+  text-shadow: 
+    3px 3px 0 var(--conan-color-bg-dark),
+    0 0 15px rgba(50, 205, 50, 0.5);
+}
+
+.conan-roll .dice-total.failure {
+  color: #ff4444;
+  text-shadow: 
+    3px 3px 0 var(--conan-color-bg-dark),
+    0 0 15px rgba(255, 68, 68, 0.5);
+}
+
+.conan-roll .dice-total.hit {
+  color: #32cd32;
+}
+
+.conan-roll .dice-total.miss {
+  color: #ff4444;
+}
+
+.conan-roll .dice-tooltip {
+  margin: var(--conan-spacing-md) 0;
+}
+
+.conan-roll .result-badge {
+  display: inline-block;
+  padding: var(--conan-spacing-xs) var(--conan-spacing-md);
+  margin: var(--conan-spacing-sm) 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 0;
+  font-size: 0.9em;
+}
+
+.conan-roll .result-badge.success,
+.conan-roll .result-badge.hit {
+  background: linear-gradient(135deg, #2d8b2d 0%, #1a5a1a 100%);
+  color: var(--conan-color-text-light);
+  border: 2px solid #1a4a1a;
+}
+
+.conan-roll .result-badge.failure,
+.conan-roll .result-badge.miss {
+  background: linear-gradient(135deg, var(--conan-color-blood) 0%, #5a0000 100%);
+  color: var(--conan-color-text-light);
+  border: 2px solid #3d0000;
+}
+
+/* === Roll Tooltips === */
+.conan-roll .auto-fail {
+  padding: var(--conan-spacing-sm) var(--conan-spacing-md);
+  background: linear-gradient(135deg, var(--conan-color-blood) 0%, #5a0000 100%);
+  color: var(--conan-color-text-light);
+  border-radius: 0;
+  border: 2px solid #3d0000;
+  margin-bottom: var(--conan-spacing-sm);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 3px 6px rgba(0, 0, 0, 0.8);
+}
+
+.conan-roll .flex-trigger {
+  padding: var(--conan-spacing-sm) var(--conan-spacing-md);
+  background: linear-gradient(135deg, var(--conan-color-gold) 0%, #b8932f 100%);
+  color: var(--conan-color-text-dark);
+  border-radius: 0;
+  border: 2px solid #9a7a2a;
+  margin-bottom: var(--conan-spacing-sm);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 0 15px rgba(212, 175, 55, 0.6),
+    0 3px 6px rgba(0, 0, 0, 0.8);
+  animation: flex-pulse 2s infinite;
+}
+
+@keyframes flex-pulse {
+  0%, 100% { 
+    box-shadow: 
+      inset 0 1px 0 rgba(255, 255, 255, 0.3), 
+      0 0 15px rgba(212, 175, 55, 0.6), 
+      0 3px 6px rgba(0, 0, 0, 0.8); 
+  }
+  50% { 
+    box-shadow: 
+      inset 0 1px 0 rgba(255, 255, 255, 0.3), 
+      0 0 25px rgba(212, 175, 55, 0.9), 
+      0 3px 6px rgba(0, 0, 0, 0.8); 
+  }
+}
+
+.conan-roll .focused-attack,
+.conan-roll .massive-damage {
+  padding: var(--conan-spacing-sm) var(--conan-spacing-md);
+  background: linear-gradient(135deg, #5a5a8b 0%, #3a3a5a 100%);
+  color: var(--conan-color-text-light);
+  border-radius: 0;
+  border: 2px solid #2a2a4a;
+  margin-bottom: var(--conan-spacing-sm);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 3px 6px rgba(0, 0, 0, 0.8);
+}
+
+.conan-roll .difficulty,
+.conan-roll .defense,
+.conan-roll .ar-reduction {
+  padding: var(--conan-spacing-xs) var(--conan-spacing-sm);
+  background: rgba(0, 0, 0, 0.4);
+  border-left: 3px solid var(--conan-color-gold);
+  margin: var(--conan-spacing-xs) 0;
+  font-size: 0.85em;
+}
+
+.conan-roll .damage-note {
+  margin-top: var(--conan-spacing-lg);
+  padding: var(--conan-spacing-sm);
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 0;
+  border-left: 3px solid var(--conan-color-blood);
+  font-style: italic;
+  font-size: 0.9em;
+  color: var(--conan-color-metal);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.conan-roll .damage-note p {
+  margin: 0;
+}
+
+.conan-roll .damage-breakdown {
+  text-align: center;
+  font-size: 0.9em;
+  color: var(--conan-color-metal);
+  margin-top: var(--conan-spacing-xs);
+}
+
+/* === Flex Options === */
+.conan-roll .flex-options {
+  margin-top: var(--conan-spacing-lg);
+  padding: var(--conan-spacing-md);
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid var(--conan-color-gold);
+  border-radius: 0;
+}
+
+.conan-roll .flex-options h5 {
+  margin: 0 0 var(--conan-spacing-sm);
+  color: var(--conan-color-gold);
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.conan-roll .flex-options button {
+  display: block;
+  width: 100%;
+  margin: var(--conan-spacing-xs) 0;
+  padding: var(--conan-spacing-sm);
+  background: linear-gradient(180deg, var(--conan-color-gold) 0%, #b8932f 100%);
+  color: var(--conan-color-text-dark);
+  border: 2px solid #9a7a2a;
+  font-family: var(--conan-font-family-primary);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: var(--conan-transition-fast);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.conan-roll .flex-options button:hover {
+  background: linear-gradient(180deg, #e4c94f 0%, var(--conan-color-gold) 100%);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.6);
+  transform: translateY(-1px);
+}
+
+.conan-roll .flex-spent {
+  text-align: center;
+  padding: var(--conan-spacing-md);
+  color: #32cd32;
+  font-weight: bold;
+}
+
+.conan-roll .flex-spent i {
+  margin-right: var(--conan-spacing-sm);
+}
+
+/* === Damage Actions === */
+.conan-roll .damage-actions {
+  margin-top: var(--conan-spacing-lg);
+  text-align: center;
+}
+
+.conan-roll .damage-actions button {
+  padding: var(--conan-spacing-sm) var(--conan-spacing-xl);
+  background: linear-gradient(180deg, var(--conan-color-blood) 0%, #5a0000 100%);
+  color: var(--conan-color-text-light);
+  border: 2px solid #3d0000;
+  font-family: var(--conan-font-family-primary);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: var(--conan-transition-fast);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+}
+
+.conan-roll .damage-actions button:hover {
+  background: linear-gradient(180deg, #a00000 0%, var(--conan-color-blood) 100%);
+  box-shadow: 0 0 12px rgba(139, 0, 0, 0.6);
+}
+
+/* === Chat Notifications === */
+.conan-notification {
+  background: linear-gradient(
+    135deg, 
+    var(--conan-color-bg-medium) 0%, 
+    var(--conan-color-bg-dark) 100%
+  );
+  border: 3px solid var(--conan-color-metal);
+  border-radius: 0;
+  padding: var(--conan-spacing-lg);
+  font-family: var(--conan-font-family-primary);
+  color: var(--conan-color-text-light);
+}
+
+.conan-notification h3 {
+  margin: 0 0 var(--conan-spacing-md);
+  color: var(--conan-color-gold);
+  font-size: 1.2em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 2px solid var(--conan-color-gold);
+  padding-bottom: var(--conan-spacing-sm);
+}
+
+.conan-notification h3 i {
+  margin-right: var(--conan-spacing-sm);
+}
+
+.conan-notification p {
+  margin: var(--conan-spacing-sm) 0;
+}
+
+.conan-notification .warning {
+  padding: var(--conan-spacing-sm);
+  background: rgba(139, 0, 0, 0.3);
+  border-left: 3px solid var(--conan-color-blood);
+  color: #ff4444;
+  font-weight: bold;
+}
+
+.conan-notification button {
+  margin-top: var(--conan-spacing-md);
+  padding: var(--conan-spacing-sm) var(--conan-spacing-lg);
+  background: linear-gradient(180deg, var(--conan-color-blood) 0%, #5a0000 100%);
+  color: var(--conan-color-text-light);
+  border: 2px solid #3d0000;
+  font-family: var(--conan-font-family-primary);
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: var(--conan-transition-fast);
+}
+
+.conan-notification ul {
+  list-style: none;
+  margin: var(--conan-spacing-md) 0;
+  padding: 0;
+}
+
+.conan-notification li {
+  padding: var(--conan-spacing-xs) 0;
+}
+
+.conan-notification li i {
+  margin-right: var(--conan-spacing-sm);
+  color: var(--conan-color-gold);
+}
+
+/* Specific notification types */
+.conan-notification.damage-taken .damage-amount {
+  color: #ff4444;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.conan-notification.healing .healing-amount {
+  color: #32cd32;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.conan-notification.stamina-change.gain .stamina-amount {
+  color: var(--conan-color-gold);
+}
+
+.conan-notification.stamina-change.spend .stamina-amount {
+  color: var(--conan-color-blood);
+}
+
+.conan-notification .hp-change {
+  text-align: center;
+  font-size: 1.1em;
+  padding: var(--conan-spacing-sm);
+  background: rgba(0, 0, 0, 0.3);
+  margin: var(--conan-spacing-sm) 0;
+}

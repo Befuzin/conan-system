@@ -1,0 +1,55 @@
+<div class="conan-roll stat-check">
+  <div class="dice-roll">
+    <div class="dice-result">
+      <h4 class="dice-formula">{{formula}}</h4>
+      
+      <div class="dice-tooltip">
+        {{#if autoFail}}
+        <div class="auto-fail">
+          <i class="fas fa-skull"></i> 
+          {{localize "CONAN.AutoFailure"}}
+        </div>
+        {{/if}}
+        
+        {{#if hasFlexTrigger}}
+        <div class="flex-trigger">
+          <i class="fas fa-star"></i> 
+          {{localize "CONAN.FlexTriggered"}}
+        </div>
+        {{/if}}
+        
+        {{#if difficulty}}
+        <div class="difficulty">
+          {{localize "CONAN.Difficulty"}}: {{difficulty}}
+        </div>
+        {{/if}}
+      </div>
+      
+      <h4 class="dice-total {{#if success}}success{{else if (eq success false)}}failure{{/if}}">
+        {{total}}
+      </h4>
+      
+      {{#if success}}
+      <div class="result-badge success">{{localize "CONAN.Success"}}</div>
+      {{else if (eq success false)}}
+      <div class="result-badge failure">{{localize "CONAN.Failure"}}</div>
+      {{/if}}
+    </div>
+  </div>
+  
+  {{#if flexOptions}}
+  <div class="flex-options">
+    <h5>{{localize "CONAN.FlexSpendOptions"}}</h5>
+    {{#each flexOptions}}
+    <button 
+      class="flex-spend" 
+      data-action="spendFlex"
+      data-flex-type="{{this.id}}"
+    >
+      {{localize this.label}}
+      {{#if this.bonus}}(+{{this.bonus}}){{/if}}
+    </button>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>

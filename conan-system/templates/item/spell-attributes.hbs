@@ -1,0 +1,32 @@
+<div class="tab attributes" data-group="primary" data-tab="attributes">
+  <div class="form-group">
+    <label>{{localize "CONAN.Spell.Cost"}}</label>
+    {{formInput 
+      fields.cost 
+      name="system.cost" 
+      value=system.cost
+    }}
+    <p class="hint">{{localize "CONAN.Spell.CostHint"}}</p>
+  </div>
+
+  <div class="form-group">
+    <label>{{localize "CONAN.Spell.Range"}}</label>
+    {{formInput 
+      fields.range 
+      name="system.range" 
+      value=system.range
+    }}
+  </div>
+
+  <div class="form-group">
+    <label>{{localize "CONAN.Spell.Effect"}}</label>
+    {{editor 
+      system.effect 
+      target="system.effect" 
+      button=true 
+      owner=isOwner 
+      editable=isEditable
+      engine="prosemirror"
+    }}
+  </div>
+</div>

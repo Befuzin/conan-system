@@ -1,0 +1,23 @@
+<div class="conan-notification recovery">
+  <h3>
+    <i class="fas fa-medkit"></i> 
+    {{localize "CONAN.RecoveryUsed"}}
+  </h3>
+  
+  <div class="recovery-info">
+    <p>
+      <strong>{{actor.name}}</strong> {{localize "CONAN.UsesRecovery"}}
+    </p>
+    
+    <ul class="recovery-benefits">
+      <li>
+        <i class="fas fa-heart"></i>
+        {{localize "CONAN.Regains"}} <strong>{{healing}}</strong> {{localize "CONAN.LP"}}
+      </li>
+      <li>
+        <i class="fas fa-bolt"></i>
+        {{localize "CONAN.Gains"}} <strong>{{staminaGained}}</strong> {{localize "CONAN.SP"}}
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="tab attributes" data-group="primary" data-tab="attributes">
+  <div class="form-group">
+    <label>{{localize "CONAN.Talent.Effect"}}</label>
+    {{editor 
+      system.effect 
+      target="system.effect" 
+      button=true 
+      owner=isOwner 
+      editable=isEditable
+      engine="prosemirror"
+    }}
+    <p class="hint">{{localize "CONAN.Talent.EffectHint"}}</p>
+  </div>
+
+  <div class="form-group">
+    <label>{{localize "CONAN.Talent.Uses"}}</label>
+    <div class="uses-row">
+      {{formInput 
+        fields.uses.fields.value 
+        name="system.uses.value" 
+        value=system.uses.value
+        placeholder="CONAN.Current"
+      }}
+      <span class="sep">/</span>
+      {{formInput 
+        fields.uses.fields.max 
+        name="system.uses.max" 
+        value=system.uses.max
+        placeholder="CONAN.Max"
+      }}
+    </div>
+    <p class="hint">{{localize "CONAN.Talent.Uses.MaxHint"}}</p>
+  </div>
+</div>

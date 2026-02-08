@@ -1,0 +1,48 @@
+<header class="sheet-header">
+  <img class="profile-img" src="{{actor.img}}" data-action="editImage" alt="{{actor.name}}"/>
+  
+  <div class="header-fields">
+    <h1 class="charname">
+      {{formInput fields.name name="name" value=actor.name placeholder="CONAN.MinionName"}}
+    </h1>
+    
+    <div class="minion-stats">
+      <div class="resource">
+        <label>{{localize "CONAN.Threshold"}}</label>
+        {{formInput 
+          fields.threshold.fields.value 
+          name="system.threshold.value" 
+          value=system.threshold.value
+        }}
+        <p class="threshold-hint">{{localize "CONAN.ThresholdHint"}}</p>
+      </div>
+      
+      <div class="resource">
+        <label class="checkbox">
+          {{formInput 
+            fields.hit 
+            name="system.hit" 
+            value=system.hit
+          }}
+          {{localize "CONAN.HitStatus"}}
+        </label>
+        <p class="threshold-hint">{{localize "CONAN.HitStatusHint"}}</p>
+      </div>
+      
+      <div class="resource">
+        <label>{{localize "CONAN.PhysicalDefense"}}</label>
+        {{formInput 
+          fields.defenses.fields.physical.fields.value 
+          name="system.defenses.physical.value" 
+          value=system.defenses.physical.value
+        }}
+      </div>
+      
+      <div class="resource">
+        <label>{{localize "CONAN.ArmorRating"}}</label>
+        <span class="defense-value">{{system.armor.rating}}</span>
+        <p class="threshold-hint">{{localize "CONAN.MinionARHint"}}</p>
+      </div>
+    </div>
+  </div>
+</header>

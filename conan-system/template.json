@@ -1,0 +1,148 @@
+{
+  "Actor": {
+    "types": ["character", "minion", "antagonist"],
+    "templates": {
+      "base": {
+        "health": {
+          "value": 10,
+          "max": 10
+        },
+        "biography": ""
+      },
+      "attributes": {
+        "attributes": {
+          "might": {
+            "value": 1,
+            "die": "d6"
+          },
+          "edge": {
+            "value": 1,
+            "die": "d6"
+          },
+          "grit": {
+            "value": 1,
+            "die": "d6"
+          },
+          "wits": {
+            "value": 1,
+            "die": "d6"
+          }
+        }
+      },
+      "defenses": {
+        "defenses": {
+          "physical": {
+            "base": 2,
+            "value": 5,
+            "attribute": "edge"
+          },
+          "sorcery": {
+            "base": 2,
+            "value": 5,
+            "attribute": "wits"
+          }
+        }
+      }
+    },
+    "character": {
+      "templates": ["base", "attributes", "defenses"],
+      "origin": "",
+      "baseLifePoints": 26,
+      "stamina": {
+        "value": 1,
+        "max": 1
+      },
+      "flexDie": "d10",
+      "recoveries": {
+        "value": 2,
+        "max": 2
+      },
+      "armor": {
+        "rating": 0
+      },
+      "encumbrance": {
+        "slots": {
+          "used": 0,
+          "max": 3
+        },
+        "bundleItems": 0,
+        "bundleMax": 5,
+        "encumbered": false
+      }
+    },
+    "minion": {
+      "templates": ["base"],
+      "threshold": {
+        "value": 5
+      },
+      "hit": false,
+      "armor": {
+        "rating": 0
+      },
+      "defenses": {
+        "physical": {
+          "value": 5
+        }
+      }
+    },
+    "antagonist": {
+      "templates": ["base", "attributes", "defenses"],
+      "stamina": {
+        "value": 0,
+        "max": 0
+      },
+      "flexDie": "d10",
+      "armor": {
+        "rating": 0
+      }
+    }
+  },
+  "Item": {
+    "types": ["weapon", "armor", "gear", "spell", "skill", "talent"],
+    "templates": {
+      "base": {
+        "description": ""
+      }
+    },
+    "weapon": {
+      "templates": ["base"],
+      "damage": "1d6",
+      "weaponType": "melee",
+      "range": "touch",
+      "properties": [],
+      "slotsUsed": 1
+    },
+    "armor": {
+      "templates": ["base"],
+      "armorRating": 0,
+      "armorType": "light",
+      "encumbranceValue": 0,
+      "equipped": false
+    },
+    "gear": {
+      "templates": ["base"],
+      "quantity": 1,
+      "isBundle": true
+    },
+    "spell": {
+      "templates": ["base"],
+      "cost": 1,
+      "range": "close",
+      "effect": ""
+    },
+    "skill": {
+      "templates": ["base"],
+      "attribute": "might",
+      "bonus": 0,
+      "effect": ""
+    },
+    "talent": {
+      "templates": ["base"],
+      "effect": "",
+      "uses": {
+        "value": 0,
+        "max": 0
+      }
+    }
+  }
+}

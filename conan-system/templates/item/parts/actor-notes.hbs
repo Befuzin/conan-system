@@ -1,0 +1,12 @@
+<div class="tab notes" data-group="primary" data-tab="notes">
+  <div class="notes-content">
+    {{editor 
+      system.biography 
+      target="system.biography" 
+      button=true 
+      owner=isOwner 
+      editable=isEditable
+      engine="prosemirror"
+    }}
+  </div>
+</div>

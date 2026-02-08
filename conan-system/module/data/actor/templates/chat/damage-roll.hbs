@@ -1,0 +1,65 @@
+<div class="conan-roll damage-roll">
+  <div class="dice-roll">
+    <div class="dice-result">
+      <h4 class="dice-formula">{{formula}}</h4>
+      
+      <div class="dice-tooltip">
+        {{#if massiveDamage}}
+        <div class="massive-damage">
+          <i class="fas fa-burst"></i> 
+          {{localize "CONAN.MassiveDamage"}} (+{{massiveDamageBonus}})
+        </div>
+        {{/if}}
+        
+        {{#if hasFlexTrigger}}
+        <div class="flex-trigger">
+          <i class="fas fa-star"></i> 
+          {{localize "CONAN.FlexTriggered"}}
+        </div>
+        {{/if}}
+        
+        {{#if arReduction}}
+        <div class="ar-reduction">
+          {{localize "CONAN.ArmorReduction"}}: -{{arReduction}}
+        </div>
+        {{/if}}
+      </div>
+      
+      <h4 class="dice-total">{{finalDamage}}</h4>
+      
+      {{#if arReduction}}
+      <div class="damage-breakdown">
+        {{rollTotal}} - {{arReduction}} AR = {{finalDamage}}
+      </div>
+      {{/if}}
+    </div>
+  </div>
+  
+  <div class="damage-note">
+    <p><em>{{localize "CONAN.MinimumDamageNote"}}</em></p>
+  </div>
+  
+  {{#if flexOptions}}
+  <div class="flex-options">
+    <h5>{{localize "CONAN.FlexSpendOptions"}}</h5>
+    {{#each flexOptions}}
+    <button 
+      class="flex-spend" 
+      data-action="spendFlex"
+      data-flex-type="{{this.id}}"
+    >
+      {{localize this.label}}
+      {{#if this.bonus}}(+{{this.bonus}}){{/if}}
+    </button>
+    {{/each}}
+  </div>
+  {{/if}}
+  
+  {{#if target}}
+  <div class="damage-actions">
+    <button data-action="applyDamage">
+      {{localize "CONAN.ApplyDamage"}}
+    </button>
+  </div>
+  {{/if}}
+</div>

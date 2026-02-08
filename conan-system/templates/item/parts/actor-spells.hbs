@@ -1,0 +1,84 @@
+<div class="tab spells" data-group="primary" data-tab="spells">
+  <h3 class="section-header">
+    <i class="fas fa-magic"></i> {{localize "CONAN.Sorcery"}}
+    <button 
+      type="button"
+      data-action="createItem" 
+      data-type="spell"
+      title="{{localize 'CONAN.CreateSpell'}}"
+    >
+      <i class="fas fa-plus"></i>
+    </button>
+  </h3>
+  
+  {{#if spells.length}}
+  <ol class="items-list spells-list">
+    {{#each spells as |spell|}}
+    <li class="item flexrow" data-item-id="{{spell.id}}">
+      <div class="item-image">
+        <img src="{{spell.img}}" alt="{{spell.name}}" width="32" height="32"/>
+      </div>
+      
+      <h4 class="item-name">{{spell.name}}</h4>
+      
+      <div class="item-details">
+        <span class="item-detail cost">
+          <i class="fas fa-bolt"></i>
+          <strong>{{localize "CONAN.Cost"}}:</strong> {{spell.cost}}
+        </span>
+        
+        <span class="item-detail range">
+          <i class="fas fa-arrows-alt"></i>
+          <strong>{{localize "CONAN.Range"}}:</strong> 
+          {{localize (concat "CONAN.Ranges." spell.range)}}
+        </span>
+      </div>
+      
+      <div class="item-controls">
+        <button 
+          type="button"
+          data-action="castSpell" 
+          title="{{localize 'CONAN.CastSpell'}}"
+          class="cast-spell-btn"
+        >
+          <i class="fas fa-wand-magic-sparkles"></i>
+          {{localize "CONAN.Cast"}}
+        </button>
+        
+        <button 
+          type="button"
+          data-action="editItem" 
+          title="{{localize 'CONAN.Edit'}}"
+        >
+          <i class="fas fa-edit"></i>
+        </button>
+        
+        <button 
+          type="button"
+          data-action="deleteItem" 
+          title="{{localize 'CONAN.Delete'}}"
+        >
+          <i class="fas fa-trash"></i>
+        </button>
+      </div>
+    </li>
+    {{/each}}
+  </ol>
+  {{else}}
+  <div class="empty-section">
+    <p>{{localize "CONAN.NoSpells"}}</p>
+    <p class="hint">{{localize "CONAN.NoSpellsHint"}}</p>
+  </div>
+  {{/if}}
+  
+  {{#if (gt spells.length 0)}}
+  <div class="sorcery-info">
+    <h4>{{localize "CONAN.SorceryNotes"}}</h4>
+    <ul class="sorcery-reminders">
+      <li><i class="fas fa-info-circle"></i> {{localize "CONAN.SorceryReminder1"}}</li>
+      <li><i class="fas fa-info-circle"></i> {{localize "CONAN.SorceryReminder2"}}</li>
+      <li><i class="fas fa-info-circle"></i> {{localize "CONAN.SorceryReminder3"}}</li>
+    </ul>
+  </div>
+  {{/if}}
+</div>

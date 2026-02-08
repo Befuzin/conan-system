@@ -1,0 +1,39 @@
+<div class="tab attributes" data-group="primary" data-tab="attributes">
+  <div class="form-group">
+    <label>{{localize "CONAN.Weapon.Damage"}}</label>
+    {{formInput 
+      fields.damage 
+      name="system.damage" 
+      value=system.damage 
+      placeholder="1d6"
+    }}
+  </div>
+
+  <div class="form-group">
+    <label>{{localize "CONAN.Weapon.Type"}}</label>
+    {{formInput 
+      fields.weaponType 
+      name="system.weaponType" 
+      value=system.weaponType
+    }}
+  </div>
+
+  <div class="form-group">
+    <label>{{localize "CONAN.Weapon.Range"}}</label>
+    {{formInput 
+      fields.range 
+      name="system.range" 
+      value=system.range
+    }}
+  </div>
+
+  <div class="form-group">
+    <label>{{localize "CONAN.Weapon.SlotsUsed"}}</label>
+    {{formInput 
+      fields.slotsUsed 
+      name="system.slotsUsed" 
+      value=system.slotsUsed
+    }}
+    <p class="hint">{{localize "CONAN.Weapon.SlotsUsedHint"}}</p>
+  </div>
+</div>

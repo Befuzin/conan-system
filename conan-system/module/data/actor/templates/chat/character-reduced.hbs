@@ -1,0 +1,13 @@
+<div class="conan-notification character-reduced">
+  <h3><i class="fas fa-skull-crossbones"></i> {{localize "CONAN.CharacterReduced"}}</h3>
+  <p>
+    <strong>{{actor.name}}</strong> {{localize "CONAN.CharacterReducedDesc"}}
+  </p>
+  <p class="warning">
+    <i class="fas fa-exclamation-triangle"></i>
+    {{localize "CONAN.GritCheckRequired"}}
+  </p>
+  <button data-action="rollGritCheck" data-actor-id="{{actor.id}}">
+    {{localize "CONAN.RollGritCheck"}}
+  </button>
+</div>

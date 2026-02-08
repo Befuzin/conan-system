@@ -1,0 +1,78 @@
+{
+  "id": "conan-system",
+  "title": "Conan: The Hyborian Age Latest Version",
+  "description": "A fast-paced heroic action RPG system featuring Flex dice mechanics and Stamina Points, set in Robert E. Howard's Hyborian Age.",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13.291"
+  },
+  "authors": [
+    {
+      "name": "Your Name",
+      "email": "your.email@example.com",
+      "url": "https://your-website.com"
+    }
+  ],
+  "esmodules": [
+    "module/conan.mjs"
+  ],
+  "styles": [
+    "styles/conan.css",
+    "styles/chat.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json",
+      "flags": {}
+    }
+  ],
+  "documentTypes": {
+    "Actor": {
+      "character": {
+        "htmlFields": ["biography"]
+      },
+      "minion": {
+        "htmlFields": ["biography"]
+      },
+      "antagonist": {
+        "htmlFields": ["biography"]
+      }
+    },
+    "Item": {
+      "weapon": {
+        "htmlFields": ["description"]
+      },
+      "armor": {
+        "htmlFields": ["description"]
+      },
+      "gear": {
+        "htmlFields": ["description"]
+      },
+      "spell": {
+        "htmlFields": ["description", "effect"]
+      },
+      "skill": {
+        "htmlFields": ["description", "effect"]
+      },
+      "talent": {
+        "htmlFields": ["description", "effect"]
+      }
+    }
+  },
+  "grid": {
+    "distance": 5,
+    "units": "ft"
+  },
+  "primaryTokenAttribute": "health",
+  "secondaryTokenAttribute": "stamina",
+  "url": "https://github.com/yourusername/conan-system",
+  "manifest": "https://github.com/yourusername/conan-system/releases/latest/download/system.json",
+  "download": "https://github.com/yourusername/conan-system/archive/refs/heads/main.zip",
+  "license": "LICENSE.txt",
+  "readme": "README.md",
+  "bugs": "https://github.com/yourusername/conan-system/issues",
+  "changelog": "CHANGELOG.md"
+}

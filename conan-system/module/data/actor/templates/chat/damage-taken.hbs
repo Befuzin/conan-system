@@ -1,0 +1,34 @@
+<div class="conan-notification damage-taken">
+  <h3>
+    <i class="fas fa-heart-broken"></i> 
+    {{localize "CONAN.DamageTaken"}}
+  </h3>
+  
+  <div class="damage-info">
+    <strong>{{actor.name}}</strong> 
+    {{localize "CONAN.Takes"}} 
+    <span class="damage-amount">{{damage}}</span> 
+    {{localize "CONAN.Damage"}}
+    {{#if source}}
+    {{localize "CONAN.From"}} <em>{{source}}</em>
+    {{/if}}
+  </div>
+  
+  {{#if result.type "minion"}}
+    {{#if result.killed}}
+    <p class="killed"><i class="fas fa-skull"></i> {{localize "CONAN.MinionKilled"}}</p>
+    {{else if result.marked}}
+    <p class="marked"><i class="fas fa-exclamation"></i> {{localize "CONAN.MinionMarked"}}</p>
+    {{/if}}
+  {{else}}
+    <div class="hp-change">
+      {{result.oldHP}} → {{result.newHP}} {{localize "CONAN.LP"}}
+    </div>
+    {{#if result.reduced}}
+    <p class="reduced">
+      <i class="fas fa-exclamation-triangle"></i>
+      {{localize "CONAN.ReducedToZero"}}
+    </p>
+    {{/if}}
+  {{/if}}
+</div>

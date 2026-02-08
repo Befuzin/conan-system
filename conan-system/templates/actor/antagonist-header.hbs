@@ -1,0 +1,85 @@
+<header class="sheet-header">
+  <img class="profile-img" src="{{actor.img}}" data-action="editImage" alt="{{actor.name}}"/>
+  
+  <div class="header-fields">
+    <h1 class="charname">
+      {{formInput fields.name name="name" value=actor.name placeholder="CONAN.AntagonistName"}}
+    </h1>
+    
+    <div class="resource-group">
+      <div class="resource">
+        <label>{{localize "CONAN.LifePoints"}}</label>
+        <div class="resource-content">
+          {{formInput 
+            fields.health.fields.value 
+            name="system.health.value" 
+            value=system.health.value
+            cssClass="current"
+          }}
+          <span class="sep">/</span>
+          {{formInput 
+            fields.health.fields.max 
+            name="system.health.max" 
+            value=system.health.max
+            cssClass="max"
+          }}
+        </div>
+      </div>
+      
+      <div class="resource">
+        <label>{{localize "CONAN.PhysicalDefense"}}</label>
+        <span class="defense-value">{{system.defenses.physical.value}}</span>
+      </div>
+      
+      <div class="resource">
+        <label>{{localize "CONAN.SorceryDefense"}}</label>
+        <span class="defense-value">{{system.defenses.sorcery.value}}</span>
+      </div>
+      
+      <div class="resource">
+        <label>{{localize "CONAN.ArmorRating"}}</label>
+        <span class="defense-value">{{system.armor.rating}}</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+{{!-- Attributes Row --}}
+<div class="attributes-row">
+  {{#each system.attributes as |attribute key|}}
+  <div class="attribute-box">
+    <div class="attribute-header">
+      {{localize (concat "CONAN.Stats." key)}}
+    </div>
+    
+    <div class="attribute-values">
+      <div class="attribute-value">
+        <label>{{localize "CONAN.Value"}}</label>
+        {{formInput 
+          fields.attributes.fields.[key].fields.value 
+          name=(concat "system.attributes." key ".value") 
+          value=attribute.value
+        }}
+      </div>
+      
+      <div class="attribute-die">
+        <label>{{localize "CONAN.Die"}}</label>
+        {{formInput 
+          fields.attributes.fields.[key].fields.die 
+          name=(concat "system.attributes." key ".die") 
+          value=attribute.die
+        }}
+      </div>
+    </div>
+    
+    <button 
+      class="attribute-roll" 
+      type="button"
+      data-action="rollStat" 
+      data-stat="{{key}}"
+    >
+      <i class="fas fa-dice-d20"></i> {{localize "CONAN.Roll"}}
+    </button>
+  </div>
+  {{/each}}
+</div>
